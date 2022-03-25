@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table</title>
+</head>
+
+<body>
+    <!-- 
+  table: HTML表格
+  tr: 元素定义表格行
+  th: 数据中的表头单元格
+  td: 表示单元格
+ -->
+    <!-- 
+  table元素里常用的属性：
+    border（边框）
+    cellspacing（规定单元格之间的空白）
+    cellpadding（规定单元边沿与其内容之间的空白）
+    colspan（用于合并列）
+    rowspan（用于合并行）
+ -->
+
+    <table border="1" cellspacing="0" cellpadding="0">
+        <tr>
+            <th>姓名</th>
+            <th colspan="2">性别</th>
+            <!-- <th>年龄</th> -->
+        </tr>
+        <tr>
+            <td>张三</td>
+            <td>男</td>
+            <td rowspan="2">18</td>
+        </tr>
+        <tr>
+            <td>李四</td>
+            <td>女</td>
+            <!-- <td>18</td> -->
+        </tr>
+    </table>
+</body>
+
+</html>
