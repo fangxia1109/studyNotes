@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css常用属性</title>
+    <style>
+        .father {
+            /* position: relative; */
+            display: flex;
+        }
+        
+        .children1 {
+            /* float: left */
+            /* position: absolute; */
+        }
+        
+        .children2 {
+            /* float: right */
+            /* position: absolute;
+            left: 103px; */
+        }
+        
+        .image {
+            width: 200px;
+            height: 200px;
+            /* background-color: red;
+            background-image: url('./1d868701bb196cdd16e0d8869c9a00b1.jpeg');
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: bottom; */
+            background: red url('./1d868701bb196cdd16e0d8869c9a00b1.jpeg') no-repeat bottom;
+            background-size: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="children1">
+            <div>浮动: float</div>
+            <div>定位: position</div>
+        </div>
+        <div class="children2">
+            <div>弹性布局: flex</div>
+            <div>盒子内容超出部分: overflow: hidden|scroll|auto</div>
+        </div>
+        <div>
+            <div class="image"></div>
+        </div>
+    </div>
+</body>
+
+</html>

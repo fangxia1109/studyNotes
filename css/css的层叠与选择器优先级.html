@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css的层叠与选择器优先级</title>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>CSS全称：层叠样式表(Cascading Style Sheets)</li>
+            <li>
+                层叠是一个基本特征
+                <ul>
+                    <li>一个css属性被多次声明的时候，会根据优先级或者声明顺序来计算采用哪个样式</li>
+                </ul>
+            </li>
+            <li>
+                优先级是怎么计算
+                <ul>
+                    <li>通配符选择器 1： *</li>
+                    <li>标签选择器 2：div/span/p/li</li>
+                    <li>类选择器 3：class</li>
+                    <li>id选择器 4： id</li>
+                    <li>行内样式 5</li>
+                    <li>!important 6(尽量不要在公用代码里使用)</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
