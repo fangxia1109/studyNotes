@@ -1,0 +1,27 @@
+* {
+    color: black
+}
+
+h1 {
+    color: red;
+}
+
+h4 {
+    color: rgb(89, 161, 228)
+}
+
+h5 {
+    color: rgb(29, 233, 206)
+}
+
+li>div>ul {
+    background-color: white
+}
+
+#select>ul {
+    background-color: bisque;
+}
+
+li>div {
+    background-color: bisque;
+}

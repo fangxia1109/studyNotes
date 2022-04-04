@@ -1,0 +1,11 @@
+* {
+    background-color: black;
+}
+
+li:nth-child(2n+1) {
+    color: bisque
+}
+
+li:nth-child(2n) {
+    color: rgb(183, 238, 30)
+}

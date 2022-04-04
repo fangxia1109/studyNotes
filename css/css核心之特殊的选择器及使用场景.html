@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>特殊选择器</title>
+    <link rel="stylesheet" href="./style2.css">
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>
+                <h4>特殊选择器</h4>
+                <div>
+                    <ul>
+                        <li>
+                            <h5>伪类选择器</h5>
+                            <div>
+                                <ul>
+                                    <li>
+                                        <div>不改变任何DOM内容。只是插入了一些修饰类的元素</div>
+                                        <div>
+                                            例：
+                                            <ul>
+                                                <li>:first-child{} //第一项 </li>
+                                                <li>:last-child{} //最后一项 </li>
+                                                <li>:nth-child(n){} //第n项 </li>
+                                                <li>:nth-child(2n+1){} //奇数项 </li>
+                                                <li>:nth-child(2n){} //偶数项 </li>
+                                                <li>:not{} //偶数项 </li>
+                                            </ul>
+                                            <br>
+                                            <ul>
+                                                <li>a:link {color:#FF0000} //未访问的链接 </li>
+                                                <li>a:visited {color: #00FF00} //已访问的链接 </li>
+                                                <li>a:hover {color:#FF00FF} //鼠标悬浮后的链接</li>
+                                                <li>a:active {color:#0000FF} //已选中的链接</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <h5>伪元素选择器</h5>
+                            <div>
+                                <ul>
+                                    <li>::first-letter //第一个字母</li>
+                                    <li>::first-line //第一行 只能用于块级元素 </li>
+                                    <li>::selection //选中 </li>
+                                    <li>::before //在开始位置 </li>
+                                    <li>::after //在结束位置 </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+
+</html>
