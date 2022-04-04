@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盒子模型</title>
+    <style>
+        /* 通配符选择器 */
+        
+        * {
+            margin: 0;
+            /* padding: 0 */
+        }
+        
+        .big {
+            width: 400px;
+            height: 400px;
+            background: red;
+            padding: 10px;
+            margin: 10px;
+        }
+        
+        .small {
+            box-sizing: border-box;
+            width: 300px;
+            height: 300px;
+            background: rgb(7, 202, 56);
+            padding: 10px;
+            margin: 10px;
+            border: 10px solid yellow;
+        }
+        
+        .borderSmall {
+            box-sizing: border-box;
+            background-color: rgba(227, 230, 233, 0.877);
+            margin-top: 4px
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div>
+            <ul>
+                <li>盒子的内容(content)：元素的大小</li>
+                <li>盒子的内边距(padding)</li>
+                <li>盒子的外边距(margin)</li>
+                <li>盒子的边框(border)</li>
+                <li>
+                    盒子怪异模型
+                    <ul>
+                        <li>
+                            W3C标准的盒子模型(标准盒模型):
+                            <div class="borderSmall">boxWidth=contentWidth</div>
+                        </li>
+                        <li>
+                            IE标准的盒子模型(怪异盒模型):
+                            <div class="borderSmall">
+                                <div>
+                                    box-sizing:border-box //声明
+                                </div>
+                                <div>
+                                    boxWidth=contentWidth+border+padding
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    外边距折叠
+                    <ul>
+                        <li>
+                            上下两个兄弟盒子的margin都为正取大，都为负取小，一正一负相加
+                        </li>
+                        <li>
+                            <div>父子元素盒子的margin(假设没有内边距或边框把外边距分隔开)，也会合并</div>
+                            <div>只有普通文档流中块框的垂直外边距才会发生外边距合并。行内框、浮动框或绝对定位之间的外边距不会合并:</div>
+                            <div class="borderSmall">
+                                解决父子边距合并:
+                                <div>
+                                    父元素 { overflow:auto; }
+                                </div>
+                                <div>
+                                    父元素::before { display:table; content: "" }
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
