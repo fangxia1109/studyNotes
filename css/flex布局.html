@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex布局</title>
+    <style>
+        .flex {
+            background-color: rgb(253, 247, 247);
+        }
+        
+        .zhushi {
+            color: orange;
+        }
+        
+        .green {
+            color: rgb(13, 95, 61)
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>
+                flex布局(弹性布局)css3知识点
+                <ul>
+                    <br>
+                    <li>
+                        父元素容器的属性
+                        <div class="flex">
+                            <br>
+                            <div class="zhushi">/* 设为Flex布局以后，子元素的float、clear和vertical-align属性将失效 */</div>
+                            <div class="green">display: flex</div>
+                            <br>
+                            <div class="zhushi">/* 决定主轴的方向（即项目的排列方向）*/</div>
+                            <div class="green">flex-direction: row | row-reverse | column |column-reverse</div>
+                            <br>
+                            <div class="zhushi">/* 是否换行 */</div>
+                            <div class="green">flex-wrap: nowrap | wrap | wrap-reverse;</div>
+                            <br>
+                            <div class="zhushi">/* 定义水平方向对齐方式 */</div>
+                            <div class="green">justify-content: flex-start | flex-end | center | space-between | space-around;</div>
+                            <br>
+                            <div class="zhushi">/* 定义垂直方向对齐方式 */</div>
+                            <div class="green">align-items: flex-start | flex-end | center | baseline | stretch</div>
+                            <br>
+                            <div class="zhushi">/* 定义多个轴线（多行/多列）对齐方式 */</div>
+                            <div class="green">align-content: flex-start | flex-end | center | space-between | space-around | stretch</div>
+                            <br>
+                        </div>
+                    </li>
+                    <br>
+                    <li>子元素容器的属性
+                        <div class="flex">
+                            <br>
+                            <div class="zhushi">/* 定义子元素的排列顺序，默认为0 */</div>
+                            <div class="green">order: -10 | -1 | 0 | 1 | 10</div>
+                            <br>
+                            <div class="zhushi">/* 定义子元素的放大比例，默认为0 */</div>
+                            <div class="green">flex-grow: 0 | 1 | 2 | 3</div>
+                            <br>
+                            <div class="zhushi">/* 定义子元素的缩小比例，默认为1 */</div>
+                            <div class="green">flex-shrink: 0 | 1</div>
+                            <br>
+                            <div class="zhushi">/* 定义了在分配多余空间之前，项目占据的主轴空间 */</div>
+                            <div class="green">flex-basis: length | auto </div>
+                            <br>
+                            <div class="zhushi">/* flex-grow,flex-shrink 和 flex-basis的简写 */</div>
+                            <div class="green">flex: 0 1 auto</div>
+                            <br>
+                        </div>
+                    </li>
+                    <li>
+                        <br> 兼容性
+                        <ul>
+                            <li>浏览器ie9及以上</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>选择float布局 or flex布局
+                <ul>
+                    <li>推荐时使用flex布局,原因：
+                        <ul>
+                            <li>flex布局易用，布局全面</li>
+                            <li>float的创建初衷只是为了达到文字环绕的效果，另外需要清楚浮动</li>
+                            <li>现在几乎所有公司的产品使用场景都在浏览器ie9以上</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
