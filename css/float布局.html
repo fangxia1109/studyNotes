@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float布局</title>
+    <style>
+        .float {
+            background-color: rgb(197, 188, 188);
+        }
+        
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+        
+        .box2 {
+            width: 200px;
+            /* height: 200px; */
+            background-color: green;
+        }
+        
+        .box2::after {
+            clear: both;
+            content: '';
+            display: block;
+        }
+        
+        .left1 {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(228, 245, 154);
+            float: left;
+        }
+        
+        .right1 {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(47, 51, 27);
+            float: left;
+        }
+        
+        .box3 {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>float布局
+                <ul>
+                    <li>
+                        使用
+                        <div class="float">
+                            <div>float: none;//默认值，元素不浮动</div>
+                            <div>float: left;//默认值，元素向左浮动</div>
+                            <div>float: right;//默认值，元素向右浮动</div>
+                        </div>
+                    </li>
+                    <li>特点
+                        <ul>
+                            <li>浮动元素会脱离文档流，不在占据文档流空间</li>
+                            <li>浮动元素彼此之间是从左往右排列，宽度超过一行自动换行</li>
+                            <li>在浮动元素前面元素不浮动时，浮动元素无法上移</li>
+                            <li>块级元素和行内元素浮动之后都变成行内块级元素</li>
+                            <li>浮动元素不会盖住文字，可以设置文字环绕效果</li>
+                        </ul>
+                    </li>
+                    <li>清除浮动
+                        <div class="float">
+                            放置在伪元素的after上
+                            <div>clear: both;</div>
+                            <div>content: '';</div>
+                            <div>display: block;</div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="box1"></div>
+    <div class="box2">
+        <div class="left1">左box</div>
+        <div class="right1">右box</div>
+    </div>
+    <div class="box3"></div>
+</body>
+
+</html>
