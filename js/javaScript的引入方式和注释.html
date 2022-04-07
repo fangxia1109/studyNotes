@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js的引入</title>
+
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>如何引入
+                <ul>
+                    <li>内部引入
+                    </li>
+                    <li>外部引入
+                        <div>注意：推荐将位置放在body标签的里面最下方，防止阻塞内容的渲染</div>
+                    </li>
+                </ul>
+            </li>
+            <li>使用w3c的标准结构、样式、行为相分离推荐外部引入</li>
+            <li>注释：//、 /**/ </li>
+            <li>结束符号: ; //写完一个语句后加分号，避免解析时报错</li>
+        </ul>
+    </div>
+    <script>
+        document.write('我是内部js引入的代码')
+    </script>
+    <script src="./index.js"></script>
+</body>
+
+</html>
