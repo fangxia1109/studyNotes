@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>基础类型
+                <ul>
+                    <li>原始类型（基础类型）数据保存在栈内存中</li>
+                    <li>基础类型有：Number、String、Boolean、Undefined、Null、Symbol</li>
+                    <ol>
+                        <li>Number类型:
+                            <ul>
+                                <li>数字方法：
+                                    <ul>
+                                        <li>整数判断：Number.isInteger()</li>
+                                        <li>指定返回的小数位数m：变量.toFixed(m)</li>
+                                    </ul>
+                                </li>
+                                <li>NaN-表示非数字值
+                                    <ul>
+                                        <li>isNaN()&nbsp;&nbsp;&nbsp;&nbsp;//用来判断一个值是否是数字
+                                            <div>//如果该值转换为number等于NaN，则此函数返回true</div>
+                                            <div>注：null; ""两个值会被判断为数字，所以使用前应该屏蔽</div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>浮点精度
+                                    <ul>
+                                        <li>js语言在浮点数计算时会有精度误差问题</li>
+                                        <li>解决方式: toFixed()</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>String类型:
+                            <ul>
+                                <li>声明定义</li>
+                                <li>常用字符串方法：
+                                    <ul>
+                                        <li>连接运算符：+</li>
+                                        <li>获取长度：.length</li>
+                                        <li>小写变大写：.toUpperCase()</li>
+                                        <li>大写变小写：.toLowerCase()</li>
+                                        <li>移除空白：.trim()</li>
+                                        <li>获取单字符：.charAt()</li>
+                                        <li>截取字符串：.splice(start,end) //start(包含), end(不包含)</li>
+                                        <li>查找字符串：.indexOf(需要查找的字符串,第几个)</li>
+                                        <li>替换字符串：.repalce(被替换的字符串，替换的字符串)</li>
+                                        <li>类型转换：.split(m) //删掉m,分割成数组 + .join(n) //在用n连接数组的每一项 </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Boolean类型：
+                            <ul>
+                                <li>声明定义</li>
+                                <li>隐式转换：
+                                    <img src="./屏幕截图 2022-04-08 160208.png" alt="">
+                                    <div>当其他类型与Boolean类型对比时，会将其他类型先转换为数值类型再对比</div>
+                                </li>
+                                <li>显式转换： !取反 ！！显示原先的布尔值
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Undefined/Null类型：
+                            <ul>
+                                <li>NUll和Undefined基本上是同义的
+                                    <div>null是一个表示"无"的对象，转为数值时为0; undefined是一个表示"无"的原始值，转为数值时为NaN</div>
+                                </li>
+                                <li>Undefined:
+                                    <ul>
+                                        <li>变量被声明了，但没有赋值时，就等于undefined</li>
+                                        <li>对象没有赋值的属性，该属性的值为undefined</li>
+                                        <li>函数没有返回值时，默认返回undefined</li>
+                                    </ul>
+                                </li>
+                                <li>Null:
+                                    <div>null表示"没有对象",即该处不应该有值</div>
+                                    <div>用法：
+                                        <ul>
+                                            <li>作为函数的参数，表示该函数的参数不是对象</li>
+                                            <li>作为对象原型链的终点 null
+                                                <div>Object.getPrototypeOf(Object.prototype)</div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Symbol(es6的语法)
+                            <ul>
+                                <li>Symbol('name')生成唯一属性
+                                    <div>在一个对象中需要增加一个相同的属性名</div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                </ul>
+            </li>
+            <li>复杂类型
+                <ul>
+                    <li>复杂类型（引用类型）数据保存在堆内存里通常内存占据空间较大，所以设计将存储内容存放在堆内存，在栈内存里放的是相对应的地址</li>
+                    <li>引用类型：对象{}、数组[]、函数(){}
+                        <ul>
+                            <li>对象类型：
+                                <ul>
+                                    <li>除了原始值(基本类型),其他(函数、数组)都是对象</li>
+                                    <li>语法
+                                        <ul>
+                                            <li>在对象里的函数叫方法(methods)</li>
+                                            <li>对象里包含属性与值，属性的值可以是任意类型的</li>
+                                        </ul>
+                                    </li>
+                                    <li>对象中的常规操作
+                                        <ul>
+                                            <li>增/改
+                                                <ul>
+                                                    <li>通过"."创建属性</li>
+                                                </ul>
+                                            </li>
+                                            <li>删
+                                                <ul>
+                                                    <li>通过delete运算符</li>
+                                                </ul>
+                                            </li>
+                                            <li>查
+                                                <ul>
+                                                    <li>通过"."运算符可以访问对象属性</li>
+                                                    <li>"[]"操作符访问，"[]"里面写字符串</li>
+                                                    <div>键值对 //键名就是属性名，值就是属性值</div>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>对象中的方法怎么访问自己的属性
+                                        <ul>
+                                            <li>通过this我们能够访问对象自身属性和方法</li>
+                                        </ul>
+                                    </li>
+                                    <li>js中创建对象的几种方式
+                                        <ul>
+                                            <li>对象字面量
+                                                <ul>
+                                                    <li>声明一个对象，赋值给一个变量</li>
+                                                </ul>
+                                            </li>
+                                            <li>构造函数
+                                                <ul>
+                                                    <li>Object自定义构造函数(大驼峰)
+                                                        <ul>
+                                                            <li>this指向的是对象的本身</li>
+                                                            <li>使用new实例化一个对象，就像工厂一样</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>构造函数的参数应该怎么写
+                                                        <ul>
+                                                            <li>固定参数应用场景
+                                                                <ul>
+                                                                    <li>明确知道对象属性</li>
+                                                                    <li>位置要严格对应</li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>对象类型的参数
+                                                                <ul>
+                                                                    <li>维护方便</li>
+                                                                    <li>使用方便</li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script>
+        let a = 3
+        console.log(Number.isInteger(a), '3')
+        let b = 3.5
+        console.log(Number.isInteger(b), 'b')
+        console.log(b.toFixed(3), '返回三位小数')
+        let c = "此类型"
+        let d = Number(c)
+        console.log(isNaN(c), '123')
+        console.log(d, 'd')
+        console.log(isNaN(d), 'Number(123)')
+            // js语言在浮点数计算时会有精度误差问题
+        let e = 0.1 + 0.2
+        console.log(e, 'e')
+        console.log(e.toFixed(2))
+        let car = new Object();
+        console.log(car)
+
+        //自定义构造函数
+        function f(color, height, suv) {
+            this.color = color
+            this.height = height
+            this.suv = suv
+        }
+
+        let car1 = new f('red', 1.8, true)
+        console.log(car1)
+
+        //构造函数函数是参数
+        function f1(obj) {
+            this.name = obj.name
+            this.price = obj.price
+            this.size = obj.size
+        }
+
+        let car2 = new f1({
+            size: 'small',
+            name: '大众',
+            price: 55
+        })
+        console.log(car2)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>new的作用</title>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>没有new,直接调用构造函数
+                <ul>
+                    <li>构造函数内部的this指向的是window</li>
+                    <div>new的第一个作用：把对象返回了回来</div>
+                    <div>new的第二个作用：把构造函数的this指向了要返回的对象上</div>
+                </ul>
+            </li>
+            <li>new
+                <ul>
+                    <li>创建了新空对象</li>
+                    <li>将构造函数的作用域赋值给新对象(this指向新对象)</li>
+                    <li>执行构造函数代码(为这个新对象添加属性)</li>
+                    <li>返回新对象</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script>
+        function Student(obj) {
+            this.name = obj.name
+            this.source = obj.source
+            this.grade = obj.grade
+            console.log(this)
+        }
+        var stu1 = new Student({
+            name: 'Jack',
+            source: 88,
+            grade: 3
+        })
+
+        //new的第一个作用：把对象返回了回来
+        //第二个作用：把构造函数的this指向了要返回的对象上
+        console.log(stu1)
+    </script>
+</body>
+
+</html>
