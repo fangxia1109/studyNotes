@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>题目一：将字符串"张三，李四，小明，小红"转化成数组，并且删除"李四"</div>
+    <div>题目二：在排好序的数组里，按照大小顺序插入数据</div>
+    <script>
+        let str = "张三，李四，小明，小红"
+        let list = str.split('，')
+        console.log(list)
+        let index = list.indexOf('李四')
+        list.splice(index, 1)
+        console.log(list)
+
+        let list1 = [23, 32, 45, 53, 62, 68]
+        let num = 44
+        let index1 = 0
+            // for (let i = 0; i < list1.length; i++) {
+            //     if (list1[i] < num) {
+            //         index1 = i
+            //     }
+            // }
+        list1.forEach((item, index) => {
+            if (item < num) {
+                index1 = index
+            }
+        })
+        list1.splice(index + 1, 0, num)
+        console.log(list1)
+    </script>
+</body>
+
+</html>

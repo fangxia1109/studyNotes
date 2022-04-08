@@ -9,7 +9,36 @@
 </head>
 
 <body>
+    <div>
+        <ul>
+            <li>浅拷贝
+                <ul>
+                    <li>定义：对于引用类型（复杂类型）而言，指两个引用类型指向同一个地址，改变一个，另一个也会随之改变</li>
+                </ul>
+            </li>
+            <li>深拷贝
+                <ul>
+                    <li>定义：对于引用类型（复杂类型）而言，复制后引用类型指向一个新的内存地址，两个对象改变互不影响</li>
+                    <li>基础类型数据的赋值与深拷贝类似</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script>
+        // 浅拷贝
+        let person1 = {
+            age: 18
+        }
+        let person2 = person1
+        person2.age = 18
+        console.log(person1, person2)
+            // 深拷贝
+        let person3 = JSON.parse(JSON.stringify(person1)); //JSON.stringify 序列化 JSON.parse 反序列化
+        person3.age = 20
+        console.log(person1, person2, person3)
 
+        // 注：数组的concat、slice是一层对象的深拷贝，如果对象的子属性是引用类型的化，就是浅拷贝
+    </script>
 </body>
 
 </html>
