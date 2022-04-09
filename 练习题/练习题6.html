@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function sort1(arr) {
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = 0; j < i; j++) {
+                    if (arr[j] > arr[i]) {
+                        let a = arr[j]
+                        arr[j] = arr[i]
+                        arr[i] = a
+                    }
+                }
+            }
+            return arr
+        }
+
+        console.log(sort1([45, 312, 2, 1, 5, -1]))
+
+        console.log([45, 312, 2, 1, 5, -1].sort(
+            function(a, b) {
+                return a - b
+            }
+        ))
+
+        function sorts(array) {
+            array.sort(function(a, b) {
+                return a - b
+            })
+            return array
+        }
+
+        console.log(sorts([45, 312, 2, 1, 5, -1]))
+
+        function Factorial(n) {
+            if (n > 1) {
+                return n * Factorial(n - 1)
+            } else {
+                return n
+            }
+        }
+
+        console.log(Factorial(6))
+    </script>
+</body>
+
+</html>

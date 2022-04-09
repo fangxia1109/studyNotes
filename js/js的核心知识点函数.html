@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数</title>
+</head>
+
+<body>
+    <div>return只能在函数里使用</div>
+    <ul>
+        <li>
+            形参和实参
+            <ul>
+                <li>形参
+                    <ul>
+                        <li>声明函数的时候定义的参数
+                            <div>function xd(a,b){} //a、b是形参</div>
+                        </li>
+                    </ul>
+                </li>
+                <li>实参
+                    <ul>
+                        <li>调用函数的时候传的一个参数
+                            <div>xd(1,2) //1、2就是形参</div>
+                        </li>
+                    </ul>
+                </li>
+                <li>特点
+                    <ul>
+                        <li>形参和实参是一一对应的</li>
+                        <li>数量可以不对应</li>
+                        <li>参数的类型不确定</li>
+                        <li>函数可以设置默认参数</li>
+                        <li>实参可以是字面量也可以是变量</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <ul>
+        <li>函数声明方式
+            <ul>
+                <li>函数声明
+                    <ul>
+                        <li>function xd(参数) {}</li>
+                        <li>var xd = function(参数) {}</li>
+                        <li>var xd = new Function (参数, 函数体)</li>
+                    </ul>
+                </li>
+                <li>注意：声明函数的过程中，函数里的语句不会执行</li>
+            </ul>
+        </li>
+    </ul>
+    <ul>
+        <li>return的作用：
+            <ul>
+                <li>返回值</li>
+                <li>中断函数</li>
+                <li>只能写在函数体里面</li>
+            </ul>
+        </li>
+    </ul>
+    <ul>
+        <li>变量的作用域及作用域链
+            <ul>
+                <li>变量
+                    <ul>
+                        <li>全局变量
+                            <ul>
+                                <li>挂载到window对象上的</li>
+                            </ul>
+                        </li>
+                        <li>局部变量
+                            <ul>
+                                <li>函数体内部声明的变量</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>作用域链
+                    <ul>
+                        <li>内层函数是可以访问外层函数声明的一个变量，反之，则不可以</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <ul>
+        <li>js中函数隐藏的参数arguments
+            <ul>
+                <li>是用来取参的</li>
+                <li>传入的实参都能在函数体里通过arguments类数组取到</li>
+                <li>具有数组的一些特点
+                    <ul>
+                        <li>通过索引取参</li>
+                        <li>有长度</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <ul>
+        <li>立即执行函数(IIFE)
+            <ul>
+                <li>作用：帮助我们调用函数</li>
+                <li>特点：
+                    <ul>
+                        <li>匿名函数</li>
+                        <li>自动执行</li>
+                        <li>执行完成之后销毁</li>
+                    </ul>
+                </li>
+                <li>写法：(function(a,b) {}(1,2))
+                </li>
+                <li>可以传参数</li>
+                <li>前面的语句必须加分号，否则会解析错误</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+
+</html>
