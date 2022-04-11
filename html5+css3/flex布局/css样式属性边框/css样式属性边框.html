@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css圆角属性</title>
+</head>
+
+<style>
+.radius {
+    width: 300px;
+    height: 200px;
+    background-color: brown;
+    /* border-radius: 50%; */
+    /* border-radius: 10px 10px 10px 10px; */
+    /* border-radius: 300px/200px; */
+    /* 等价于 */
+    border-top-left-radius: 300px 200px;
+    border-top-right-radius: 300px 200px;
+    border-bottom-left-radius: 300px 200px;
+    border-bottom-right-radius: 300px 200px;
+}
+.shadow {
+    width: 300px;
+    height: 200px;
+    border: 1px solid brown;
+    box-shadow: 10px 10px 10px 20px rgb(50, 60, 61) inset;
+}
+.borderImg{
+    width: 300px;
+    height: 200px;
+    border: 15px solid transparent;
+    border-image: url('../1.jpg') 360
+}
+.backgroundImg {
+    width: 300px;
+    height: 200px;
+    background-image: url('../1.jpg');
+    background-repeat: no-repeat;
+    background-size: 100px 100px;
+}
+</style>
+<body>
+    <!-- css3圆角属性border-radius: 被用于创建圆角 -->
+    <!-- border-radius属性每个半径四个值的顺序分别是左上角,右上角,右下角,左下角
+    可传的值如下
+        length:定义圆形半径或椭圆的半长轴,半短轴.负值无效.
+        percentage:使用百分数定义圆形半径或椭圆的半长轴,半短轴.水平半轴相对于盒模型的宽度;垂直半轴相对于盒模型的高度;负值无效
+        /斜杆分隔写法,斜杆左边的值为水平半轴,右边值垂直半轴
+    -->
+
+    <!-- css3盒阴影属性box-shadow：被用来添加阴影 -->
+    <!-- 
+        box-shadow: h-shadow v-shadow blur spread color inset
+        h-shadow：必需的。水平阴影的位置。允许负值
+        v-shadow：必需的。垂直阴影的位置，允许负值
+        blur：可选。模糊距离
+        spread：可选。阴影的大小
+        color：可选。阴影的颜色
+        inset：可选。阴影向内扩散
+     -->
+
+    <!-- css3图片边框属性border-image：指定一个图片作为边框 -->
+    <!-- 
+        border-image: border-image-source border-image-slice / border-image-width border-image-outset border-image-repeat
+        border-image-source：边框图片的资源路径
+        border-image-slice：切割图片,[<number>|<percentage>]
+        border-image-width：图像边界的宽度[<length>|<percentage>|<number>|auto]
+            length带px,em,in...单位的尺寸值
+            percentage 百分比
+            number不带单位的数字；他表示border-width的倍数
+            auto使用auto,border-image-width将会使用border-image-slice的值
+        border-image-outset：定义边框图像向外偏移的宽度[<length>|<number>]
+        border-image-repeat：用于设置图像边界是否应重复(repeat)、拉伸(stretch)或铺满(round)
+     -->
+
+    <!-- css3背景新特性 -->
+    <!-- 
+        background-image：添加背景图片
+            可添加多个背景，每张图片用逗号隔开，前面的图片会绘制在后面的图片上
+        
+        background-size：设置背景图片的大小
+            可传的值如下：
+                <length>值，指定背景图片大小，不能为负值
+                <percentage>值，指定背景图片相对背景区（background positioning area）的百分比
+                <auto>值，以背景图片的比例缩放背景图片
+                <cover>值，缩放背景图片以完全覆盖背景区
+                <contain>值，按原有宽高比例缩放背景图片以完全装入背景区
+    
+        background-origin：指定背景图片的位置
+            可传的值如下：
+                border-box：背景图片的摆放以border区域为参考
+                padding-box：默认值 背景图片的摆放以padding区域为参考
+                content-box：背景图片的摆放以content区域为参考
+            注：当使用background-attachment为fixed时，该属性将被忽略不起作用
+        
+        background-clip：指定从哪个位置开始绘制
+            可传的值如下：
+                border-box：默认值，背景延伸至边框外沿（但是在边框下层）
+                padding-box：背景延伸至内边距（padding）外沿。不会绘制到边框处
+                content-box：背景被裁剪至内容区（content box）外沿
+
+     -->
+
+    <!-- <div class="radius"></div> -->
+    <!-- <div class="shadow"></div> -->
+    <!-- <div class="borderImg">css3图片边框borderImg</div> -->
+    <div class="backgroundImg"></div>
+</body>
+</html>

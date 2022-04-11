@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单</title>
+</head>
+
+<body>
+    <!-- 表单属性
+    1、autocomplete属性：该属性规定form或input域是否有自动完成功能，当用户在输入域输入时提示之前输入的内容选项
+        注：该属性适用于form标签，以及input标签:text、search、url、tel、email、password、datepickers、range以及color
+    2、autodocus属性：该属性规定在页面加载时，该input框自动获取焦点
+    3、width和height属性：设置宽高
+        注：该属性只适用于image类型的input标签
+    4、multiple属性：规定input元素可选择多个值
+        注：该属性适用于email和file类型，提交多个邮箱时用逗号隔开
+    5、pattern属性：使用一个正则表达式用于验证input框的值
+        注：该属性适用于以下类型的input标签：text、search、url、tel、email、password
+    6、placeholder属性：该属性给输入框提供输入提示
+        注：该属性适用于以下类型的input标签：text、search、url、tel、email、password
+    7、required属性：表示该输入框必须填写，不能为空
+        注：该属性适用于以下类型的input标签：text、search、url、tel、email、password、datepickers、number、checkbox、radio以及file
+    -->
+    <form action="" autocomplete="on">
+        用户名<input type="text" name="username" pattern="[A-Za-z]{4}">
+        邮箱<input type="email" name="email" >
+        <input type="image" src="1.jpg" width="100" height="100">
+        <input type="file" multiple>
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>

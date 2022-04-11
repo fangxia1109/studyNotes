@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .textShadow {
+            text-shadow: 2px 2px 2px red;
+        }
+        .textOverflow {
+            width: 100px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow:ellipsis;
+        }
+        .wordWrap {
+            width: 140px;
+            /* word-wrap: break-word; */
+            /* word-break: break-all; */
+            word-break: keep-all;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- text-shadow：给文本添加阴影效果 -->
+    <!-- text-shadow: h-shadow v-shadow blur color -->
+    <!-- 
+        对应值描述如下：
+            h-shadow 必需。水平阴影的位置。允许负值
+            v-shadow 必需。垂直阴影的位置。允许负值
+            blur 可选。模糊的距离。
+            color 可选。阴影的颜色。
+     -->
+
+    <!-- text-overflow：指定当文本溢出包含它的元素的形式 -->
+    <!-- text-overflow：clip|ellipsis|string; -->
+    <!-- 
+        对应值描述如下：
+            clip 修剪文本
+            ellipsis 显示省略符号来代表被修剪的文本
+            string 使用给定的字符串来代表被修剪的文本
+     -->
+
+    <!-- word-wrap: 属性允许内容在过长情况下可以自动换行 -->
+    <!-- word-wrap: normal|break-word; -->
+    <!-- 
+        对应值描述如下：
+            normal 只在允许的断字点换行
+            break-word 在长单词或URL地址内部进行换行
+     -->
+
+    <!-- word-break: 指定内容的断行规则 -->
+    <!-- word-break: normal|break-all|keep-all -->
+    <!-- 
+        对应值如下：
+            normal 使用浏览器默认的换行规则
+            break-all 允许在单词内换行
+            keep-all 只能在半角空格或连字符处换行
+     -->
+
+    <!-- @font-face规则：定义自己的文本字体 -->
+    <!-- 
+        首先定义字体的名称（比如myFirstFont），然后指向该字体文件
+            提示：URL请使用小写字母的字体，大写字母在IE中会产生意外的结果
+            
+     -->
+    <div class="textShadow">
+        css3文本阴影
+    </div>
+    <div class="textOverflow">
+        css3文本阴影111111111111
+    </div>
+    <div class="wordWrap">
+        css3 文本阴影 222222222222
+    </div>
+</body>
+
+</html>

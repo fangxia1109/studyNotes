@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css3过渡使用技巧</title>
+</head>
+
+<style>
+    .test {
+        width: 100px;
+        height: 100px;
+        background: red;
+        border-radius: 50%;
+        /* transition: width 2s, height 2s */
+        /* transition: all 2s; */
+        animation: myAnimation 5s linear 2s;
+    }
+
+    /* .test:hover {
+        width:200px;
+        height: 200px;
+    } */
+
+    @keyframes myAnimation {
+        /* 0% {background: red;}
+        50% {background: yellow;}
+        100% {background: blue;} */
+        from {left: 0;}
+        to {transform:rotate(360deg);left:100px;}
+    }
+</style>
+<body>
+    <!-- css3过渡是元素从一种样式逐渐改变为另一种的效果 -->
+    <!-- transition: property duration timing-function delay -->
+    <!-- 
+        值                                描述
+        transition-property            指定CSS属性的name,transition效果
+        transition-duration            transition效果需要指定多少秒或毫秒才能完成
+        transition-timing-function     指定transition效果的转速曲线
+        transition-delay               定义transition效果开始的时候
+    
+    例：
+    .test{
+        width:100px;
+        height:100px;
+        background:red;
+        transition:width 2s;
+    }
+
+    transition-property属性
+    值                                 描述
+    none                           没有属性会获得过渡效果
+    all                            所有属性都将获得过渡效果
+    property                       定义应用过渡效果的CSS属性名称列表，列表以逗号分隔
+    
+    transition-timing-function属性
+    值                                 描述
+    linear                         规定以相同速度开始至结束的过渡效果
+    ease                           默认值。规定慢速开始，然后变快，然后慢速结束的过渡效果
+    ease-in                        规定以慢速开始的过渡效果
+    ease-out                       规定以慢速结束的过渡效果
+    ease-in-out                    规定以慢速开始和结束的过渡效果
+    
+    css3@keyframes规则
+    @keyframes规则内指定一个CSS样式和动画将逐步从目前的样式更改为新的样式
+    animation: name duration timing-function delay iteration-count direction fill-mode play-state
+    单个属性设置如下：
+    值                                  说明
+    animation-name                 指定动画的名称
+    animation-duration             动画需要多少秒或毫秒完成
+    animation-timing-function      设置动画将如何完成一个周期
+    animation-delay                设置动画在启动前的延迟间隔
+    animation-iteration-count      定义动画的播放次数
+    animation-direction            指定是否应该轮流反向播放动画
+    animation-fill-mode            规定当动画不播放时（当动画完成时，或当动画有一个延迟未开始播放时），要应用到元素的样式。
+    animation-play-state           指定动画是否正在运行或已暂停
+    
+    过渡的速度曲线如下：(animation-timing-function)
+    值                                   描述
+    linear                         动画从头到尾的速度是相同的
+    ease                           默认。动画以低速开始，然后加快，在结束前变慢。
+    ease-in                        动画以低速开始
+    ease-out                       动画以低速结束
+    ease-in-out                    动画以低速开始和结束
+
+    animation-delay属性允许负值，例如-2s使动画马上开始，但跳动2秒进入动画
+    animation-iteration-count传数字（表示播放多少次）或者infinite（无限播放）
+    animation-direction属性定义是否循环交替反向播放动画
+        注：如果动画被设置为只播放一次，该属性将不起作用
+    值                        描述
+    normal                   默认值。动画按正常播放
+    reverse                  动画反向播放
+    alternate                动画在奇数次正向播放，在偶数次反向播放
+    alternate-reverse        动画在奇数次反向播放，在偶数次正向播放
+
+    animation-fill-mode属性
+    值                          描述
+    none                    默认值。动画在动画执行之前和之后不会应用任何样式到目标元素
+    forwards                在动画结束后（由animation-iteration-count决定），动画将应用该属性值
+    backwards               动画将应用在animation-delay定义期间启动动画的第一次迭代的关键帧中定义的属性值。这些都是from关键帧中的值（当animation-direction为"normal"或"alternate"时）或to关键帧中的值（当animation-direction为"reverse"或"alternate-reverse"时）。
+    both                    动画遵循forwards和backwords的规则。也就是说，动画会在两个方向上扩展动画属性。
+    
+    animation-play-state属性
+    值                          描述
+    paused                  指定暂停动画
+    running                 指定正在运行的动画
+    -->
+    
+    <div class="test">css3过渡使用技巧</div>
+</body>
+</html>

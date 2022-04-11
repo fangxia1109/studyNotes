@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>localStorage</title>
+</head>
+<body>
+    <!-- HTML5web存储 -->
+    <!-- 
+        该存储可以在本地储存用户的浏览数据,web存储相对cookie共呢个家的安全与快速,他的数据不会保存在服务器上,也可以存储大量的数据,而不影响网站的性能.
+     -->
+
+    <!-- 客户端存储数据之localStorage -->
+    <!-- 
+        1、用于长久保存网站的数据，保存的数据没有过期时间，可手动删除
+        2、常用API如下：
+            保存数据：localStorage.setItem(key,value);
+            读取数据：localStorage.getItem(key);
+            删除单个数据：localStorage.removeItem(key);
+            删除所有数据：localStorage.clear();
+            得到某个索引的key：localStorage.key(index);
+        3、键/值对通常以字符串储存 
+    -->
+
+    <!-- 客户端储存数据之sessionStorage -->
+    <!-- 
+        1、sessionStorage储存的数据在用户关闭浏览器窗口后，数据会被删除
+        2、API如localStorage相同
+     -->
+
+    <!-- cookie,localStorage以及sessionStorage的区别 -->
+    <!-- 
+        共同点:都是保存在浏览器端,且是同源共享的.
+        区别:
+            1 cookie数据会在浏览器和服务器之间进行浏览,每次http请求都会携带cookie,而sessionStorage和localStorage仅在客户端保存,不参与服务器通信.
+            2 存储大小限制也不同,cookie数据不能超过4k,sessionStorage和localStorage的大小一般是5M
+            3 数据的周期时间不同,cookie数据在设置的过期时间内一直有效,sessionStorage数据会在当前浏览器窗口时清除,localStorage数据则始终存在,即使关闭浏览器或窗口,直到手动清除数据
+            4 cookie相比其他两个安全性不高,容易被拦截获取
+     -->
+    <script>
+        // localStorage.username = "eric";
+        // localStorage.tel= 123456789;
+        // console.log(localStorage.username)
+        // 保存数据
+        // localStorage.setItem("email","xiao@qq.com")
+
+        // 获取数据 
+        // var name = localStorage.getItem("email");
+        // console.log(name)
+
+        // 删除单个数据
+        // localStorage.removeItem("username");
+
+        // 删除所有数据
+        // localStorage.clear();
+
+        // 获取某个索引的key
+        // var key = localStorage.key(1)
+        // console.log(key)
+
+        // var tel = localStorage.getItem("tel");
+        // console.log(Number(tel) + 1);
+    </script>
+</body>
+</html>

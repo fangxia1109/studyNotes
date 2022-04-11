@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header {
+            width: 400px;
+            margin: 0 auto
+        }
+        
+        header nav {
+            display: inline-block;
+            margin-left: 100px;
+        }
+        
+        article {
+            float: left;
+            width: 780px;
+            border: 1px solid #000
+        }
+        
+        aside {
+            float: right;
+            width: 700px;
+            border: 1px solid #000
+        }
+        
+        main {
+            overflow: hidden;
+        }
+        
+        footer {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2>HTML5常用的语义化和结构元素</h2>
+    </header>
+    <main>
+        <article>
+            <section>
+                <ul>结构元素
+                    <li>header标签：通常被放置在页面或者页面中某个区块元素的顶部，用来介绍内容或者当做导航链接栏,在一个文档中，你可以定义多个header元素</li>
+                    <li>nav标签：通常表示页面的导航</li>
+                    <li>main标签：文档主要内容</li>
+                    <li>article标签：使用在相对比较独立、完整的内容模块，一般是用在博客、论坛帖子、新闻报道、用户评论</li>
+                    <li>section标签：一般用作内容的分组，比如文章的章节</li>
+                    <li>aside标签：包含的内容不是页面的主要内容、具有独立性，是对页面的补充，一般使用在页面、文章的侧边栏、广告、友情链接等区域</li>
+                    <li>footer标签：一般放在页面或页面中某个区块的底部，包含版权信息、联系方式等</li>
+                </ul>
+            </section>
+        </article>
+        <aside>
+            <ul>其他元素
+                <li>ruby标签：定义ruby注释（中文或字符）
+                    <ul>
+                        <li>将ruby标签与rt和rp标签一起使用</li>
+                        <li>rp标签可选，该标签定义的是当浏览器不支持ruby元素时显示的内容</li>
+                    </ul>
+                </li>
+                <li>progress标签：定义进度条</li>
+                <li>mark标签：用来标记文本</li>
+                <li>embed标签：用来嵌入指定的内容，比如插件</li>
+            </ul>
+        </aside>
+    </main>
+    <footer>html5</footer>
+</body>
+
+</html>

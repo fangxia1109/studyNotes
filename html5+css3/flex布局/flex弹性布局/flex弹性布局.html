@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex弹性布局-容器属性</title>
+    <style>
+        .flexTest {
+            display: flex;
+            /* width: 360px; */
+            /* height: 360px; */
+            /* flex-wrap: wrap-reverse; */
+            /* flex-flow: column wrap; */
+            /* align-content: flex-start; */
+            /* justify-content: space-around; */
+            height: 500px;
+            align-items: center;
+        }
+
+        .item {
+            width: 100px;
+            /* height: 100px; */
+            margin:10px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        flex布局是弹性布局，是css3中的新布局模块，
+        用来为盒模型提供最大的灵活性。可改进容器中的
+        项目对齐，方向和顺序，即使他们具有动态甚至是
+        未知大小。Flex容器能够调节子节点的宽度或高度，
+        以便适应不同的屏幕尺寸 
+    -->
+    <!-- 
+        容器存在两根轴：水平的主轴（main axis）
+        和垂直的交叉轴（cross axis）.
+        主轴开始的位置叫做main start,结束位置叫做main end;
+        交叉轴的开始位置叫做cross start,结束位置叫做cross end.
+        单个项目占据的主轴空间叫做main size,占据的交叉轴空间叫做cross size.
+    -->
+    <!-- 
+        用法：
+        使用flex布局，需在父元素上设置display属性
+        .flexTest {
+            display: flex;
+        }
+        或者将其显示为行内元素
+        .flexTest {
+            display: inline-flex;
+        }
+        注：设置flex布局后，子元素的float、clear和vertical-align属性将失效
+    -->
+
+    <!-- 
+        flex布局容器六大属性之flex-direction
+        flex-direction属性决定主轴的方向
+        值                                描述
+        row                           默认值。主轴为水平方向，起点在左边
+        row-reverse                   主轴为水平方向，起点在右边
+        column                        主轴为垂直方向，起点在上面
+        column                        主轴为垂直方向，起点在下面
+    -->
+    
+    <!-- 
+        flex布局容器六大属性之flex-wrap和flex-flow
+        flex-wrap属性设置子项目的换行方式
+        值                                描述
+        nowrap                         默认值。不换行
+        wrap                           换行，从上往下排列，第一行在上方
+        wrap-reverse                   换行，从下往上排列，第一行在下方
+        flex-flow属性是flex-direction属性和flex-wrap属性的简写方式，默认值是row nowrap
+        语法：flew-flow: <flex-direction> || <flex-wrap>
+    -->
+
+    <!-- 
+        flex布局容器六大属性之justify-content
+        justify-content属性设置子项目在主轴上的对齐方式
+        值                                描述
+        flex-start                     默认值。左对齐
+        flex-end                       右对齐
+        center                         居中
+        space-between                  两端对齐，子项目之间间隔一样
+        space-around                   每个子项目两侧的间隔一样
+    -->
+
+    <!-- 
+        flex布局容器六大属性之align-items
+        align-items属性规定子项目在交叉轴上的对齐方式
+        值                                描述
+        flex-start                     交叉轴的起点对齐
+        flex-end                       交叉轴的终点对齐
+        center                         交叉轴的中点对齐
+        baseline                       以子项目的第一行文字为基线对齐
+        stretch                        默认值.如果项目未设置固定高度,将占满整个容器的高度
+    -->
+
+    <!-- 
+        flex布局项目六大属性之order和flex-grow
+        order属性规定子容器(项目)的排列顺序.数值越小越靠前,默认为0,支持负数
+        .item {
+            order:<integer>
+        }
+        flex-grow属性规定子容器的放大比例,默认为0,剩余空间不足则不会放大.
+        .item {
+            flex-grow:<number>
+        }
+        如果子容器的flex-grow属性为1,则等分剩余空间.
+    -->
+
+    <!-- 
+        flex布局项目六大属性之flex-shrink
+        flex-shrink属性规定子容器的缩小比例,默认为1,如果空间不足,该子容器将缩小.
+        .item {
+            flex-shrink:<number>
+        }
+        如果子容器的flex-shrink属性都为1,当空间不足时,都将等比例缩小.
+    -->
+
+    <!-- 
+        flex布局项目六大属性之flex-basis和flex
+        flex-basis属性可修改子容器占据的主轴空间的大小.默认值为auto,即子容器的本来大小
+        .item {
+            flex-basis:<length> | auto;
+        }
+        flex属性是flex-grow,flex-shrink和flex-basis的简写,默认值是0 1 auto,后两个属性可选
+        .item {
+            flex: none | [<'flex-grow'><'flex-shrink'> ? || <'flex-basis'>]
+        }
+        该属性设置auto等同于(1 1 auto),none等同于(0 0 auto)
+        提示: 建议优先使用这个属性,而不是单独写三个分离的属性,因为浏览器会推算相关值
+    -->
+
+    <!-- 
+        flex布局项目六大属性之align-self
+        align-self属性允许单个子容器与其他子容器有不一样的对齐方式,可覆盖align-items属性.
+        默认值为auto,表示继承父元素的align-items属性
+        .item {
+            align-self: auto|flex-start|flex-end|center|baseline|stretch;
+        }
+    -->
+    <div class="flexTest">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+    </div>
+</body>
+</html>

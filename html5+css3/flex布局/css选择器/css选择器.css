@@ -1,0 +1,97 @@
+/* el1~el2匹配element1元素之后的每一个element2元素,必须具有相同的父元素 */
+/* h1~p {
+    color: red;
+} */
+
+/* [attribute^=value]匹配元素属性值以指定value值开头的元素 */
+div[class^="test"] {
+    background-color:red;
+}
+
+/* [attribute$=value]匹配元素属性值以指定value值结尾的元素 */
+div[class$="test"] {
+    background-color: green;
+}
+
+/* [attribute*=value]匹配元素属性值包含指定value值的元素 */
+div[class*="dowload"] {
+    background-color:pink;
+}
+
+/* el:first-of-type匹配的el元素是其父元素的第一个元素 */
+p:first-of-type {
+    color: aqua;
+}
+
+/* el:last-of-type匹配的el元素是其父元素的最后一个子元素 */
+p:last-of-type {
+    color: blueviolet;
+}
+
+/* el:only-of-type匹配的el元素是其父元素唯一的子el元素 */
+h1:only-of-type {
+    color:chartreuse;
+}
+
+/* el:only-child匹配属于父元素中唯一子元素的el元素 */
+p:only-child {
+    background-color: black;
+}
+
+/* el:nth-child(n)匹配父元素中的第n个子元素,子元素不是el元素则不生效
+    n可以是数字,关键字或者公式
+*/
+
+/* el:nth-last-child(n)匹配父元素中的倒数第n个子元素,子元素不是el元素则不生效
+    n可以是数字,关键字或者公式
+*/
+
+/* el:nth-last-of-type(n)匹配父元素中同类型的倒数第n个子元素
+    n可以是数字,关键字或者公式
+ */
+
+/* el:last-child匹配父元素中最后一个子元素 */
+
+/* :root匹配文档的根元素,该选择其等同于html */
+
+/* el:empty匹配每个没有任何子级的元素(包过文本节点) */
+
+/* :target匹配当前活动的target元素的样式 */
+
+/* el:enabled匹配每个启用的元素(主要用于表单元素) */
+
+/* el:disabled匹配每个禁用的元素(主要用于表单元素) */
+
+/* el:checked匹配每个选中的输入元素(仅用于单选按钮或复选框) */
+
+/* :not(selector)匹配除了指定selector元素的其他元素 */
+
+/* ::selection匹配被用户选中或处于高亮状态的元素
+    该选择器只可以应用于少数的css属性:color,background,cursor和outline
+*/
+
+/* el:out-of-range匹配值在指定区间外的input元素 */
+
+/* el:in-range匹配值在指定区间内的input元素
+    注:该选择器只作用于能指定区间之外值得元素,例如input元素的min和max属性
+*/
+
+/* el:in-range匹配值在指定区间内的input元素 */
+
+/* el:read-write匹配可读及可写的元素 */
+
+/* el:read-only匹配设置了readonly属性的元素 */
+
+/* el:optional匹配可选的输入元素
+    optional选择器只适用于表单元素:input,select和textarea
+*/
+
+/* el:required匹配设置了required属性的元素
+    required选择器只适用于表单元素:input,select和textarea
+*/
+
+/* el:valid匹配输入值为合法的元素
+注: :valid选择器只作用于能指定区间值的元素,例如input元素中的min和max属性,及正确的email字段,合法的数字字段等.
+*/
+
+/* el:invalid匹配输入值为非法的元素 */

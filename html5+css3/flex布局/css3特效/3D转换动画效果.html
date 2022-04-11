@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D转换动画效果</title>
+</head>
+
+<style>
+    body {
+        transform-style: preserve-3d;
+    }
+    .tf {
+        width:100px;
+        height: 100px;
+        background: red;
+        transform:translate3d(50px,50px,100px);
+    }
+
+    .tf2 {
+        width:100px;
+        height:100px;
+        background: yellow;
+        transform: translate3d(0,0,50px);
+    }
+
+    .rotate {
+        width: 100px;
+        height: 100px;
+        background: red;
+        transition: all 2s;
+    }
+
+    .rotate:hover {
+        /* transform: rotateX(180deg); */
+        transform: rotateY(180deg)
+    }
+</style>
+<body>
+    <!-- translate3d(x,y,z)定义3d转换 -->
+    <!-- 
+        1 translateZ(z)在z轴上的平移，z轴为面向屏幕的这个方向
+        2 perspective()方法设置3d透视视图
+        3 在父元素上加上transform-style:preserve-3d可修改元素层级
+    -->
+
+    <!-- 
+        rotateX定义沿着X轴的3d旋转
+        例：{
+            transform: rotateX(180deg)
+        }
+        rotateY定义沿着Y轴的3d旋转
+        例：{
+            transform: rotateY(180deg)
+        }
+     -->
+    <!-- <div class="tf"></div>
+    <div class="tf2"></div> -->
+
+    <div class="rotate">fxxf</div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .linearGradient {
+            width:300px;
+            height:200px;
+            /* background: -webkit-linear-gradient(left bottom,red 10%,black 50%,yellow); */
+            /* background: linear-gradient(to right, red,black); */
+            background: repeating-linear-gradient(45deg,yellow,red 10%,black 20%);
+        }
+        .radialGradient {
+            width: 300px;
+            height: 300px;
+            /* background: radial-gradient(circle farthest-corner at top,red,blue,yellow); */
+            background: repeating-radial-gradient(red,yellow 10%,blue 20%);
+        }
+    </style>
+</head>
+<body>
+    <!-- 线性渐变（linear-gradient） -->
+    <!-- 
+        1.标准语法：
+            background: linear-gradient(direction,color-stop1,color-stop2,...);
+            1 direction：渐变的方向，默认情况是从上到下
+            2 标准语法方向是渐变的末尾位置，其他浏览器前缀语法是渐变的起始位置
+            3 注：标准语法要放在其他浏览器语法后面
+
+        2.角度渐变：标准语法0度指向北，其他浏览器前缀语法指向东
+            换算公式：90-标准语法角度 = 其他浏览器前缀语法角度
+
+        3.重复的线性渐变：repeating-linear-gradient()
+
+        4.径向渐变(radial-gradient)
+            background: radial-gradient(shape size at position, start-color, ... , last-color);
+            shape 确定圆的类型：
+                ellipse（默认）：指定椭圆形的径向渐变
+                circle：指定圆形的径向渐变
+            size 定义渐变的大小，可能值：
+                farthest-corner（默认）：指定径向渐变的半径长度为从圆心到离圆心最远的角
+                closest-side：指定径向渐变的半径长度为从圆心到离圆心最近的边
+                closest-corner：指定径向渐变的半径长度为从圆心到离圆心最近的角
+                farthest-side: 指定径向渐变的半径长度为从圆心到离圆心最远的边
+            position 定义渐变的位置。可能值：
+                center(默认)：设置中间为径向渐变圆心的纵坐标值
+                top: 设置顶部为径向渐变圆心的纵坐标值
+                bottom: 设置底部为径向渐变圆心的纵坐标值
+            start-color,...,last-color：用于指定渐变的起止颜色
+     -->
+    <!-- <div class="linearGradient"></div> -->
+    <div class="radialGradient"></div>
+</body>
+</html>
