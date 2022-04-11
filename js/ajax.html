@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>ajax帮助我们向服务器发异步请求</div>
+    <ul>
+        <li>同步/异步，这两个术语与我们生活中的意思是相反的
+            <ul>
+                <li>同步： 一个程序需要等另一个程序结束才能开启
+                </li>
+                <li>异步：两个程序可以同时进行</li>
+            </ul>
+        </li>
+        <li>原理
+            <ul>
+                <li>通过XmlHttpRequest对象向服务器发异步请求，从服务器获取数据</li>
+                <li>然后通过js来操作DOM而更新页面</li>
+                <li>它是在IE5中首先引入的，是一种支持异步请求的技术</li>
+                <li>简单的说，也就是js可以及时向服务器提出请求和处理响应，而不阻塞程序运行，达到无刷新的效果</li>
+            </ul>
+        </li>
+        <li>注意
+            <ul>
+                <li>js是单线程的，会阻塞代码运行，所以引入XmlHttpRequest请求处理异步数据</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+
+</html>

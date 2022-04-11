@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>JSON是什么
+            <ul>
+                <li>JSON是一种轻量级的数据交换格式，它基于JavaScript的一个子集，易于人的编写和阅读，也易于机器解析。JSON采用完全独立于语言的文本格式，但是也使用了类似于C语言家族的习惯</li>
+                <li>简而言之，JSON是用来做数据交换的一种语言</li>
+            </ul>
+        </li>
+        <li>JSON的语法格式
+            <ul>
+                <li>属性名称必须是双引号括起来的字符串</li>
+                <li>最后一个属性后不能有逗号</li>
+            </ul>
+        </li>
+        <li>JSON的作用
+            <ul>
+                <li>用于传输数据</li>
+            </ul>
+        </li>
+        <li>
+            序列化和反序列化
+            <ul>
+                <li>对象序列化可以在网络上传输，或者保存到硬盘(浏览器)上</li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        let obj = {
+            name: "张三",
+            age: "18"
+        }
+        let a = JSON.stringify(obj) //序列化 转换成JSON格式
+        console.log(a)
+        console.log(typeof(a))
+        let b = JSON.parse(a) //反序列化 或者转换成对象格式
+        console.log(b)
+        console.log(typeof(b))
+    </script>
+</body>
+
+</html>

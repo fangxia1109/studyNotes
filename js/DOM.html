@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM节点的常见操作</title>
+</head>
+
+<body>
+    <h1 id="h1" class="h">小滴课堂</h1>
+    <h1 id="h2" class="h">小滴课堂1</h1>
+    <div onclick="test()" id="div2">小滴课堂2</div>
+    <div class="xdclass">xdclass.net</div>
+    <ul>
+        <li>查找节点
+            <table border="1" cellspacing="0" cellpadding="0">
+                <tr>
+                    <th>方法</th>
+                    <th>描述</th>
+                </tr>
+                <tr>
+                    <td>document.getElementById(id)</td>
+                    <td>通过元素id来查找元素</td>
+                </tr>
+                <tr>
+                    <td>document.getElementsByTagName(name)</td>
+                    <td>通过元素标签名来查找元素</td>
+                </tr>
+                <tr>
+                    <td>document.getElementsByClassName(name)</td>
+                    <td>通过元素类名来查找元素</td>
+                </tr>
+                <tr>
+                    <td>document.querySelector(selector)</td>
+                    <td>通过css选择器选择元素，无法选择伪类</td>
+                </tr>
+                <tr>
+                    <td>document.querySelectorAll(selector)</td>
+                    <td>通过css选择器选择元素的全部，无法选择伪类</td>
+                </tr>
+            </table>
+        </li>
+        <li>改变元素内容
+            <table border="1" cellspacing="0" cellpadding="0">
+                <tr>
+                    <th>方法</th>
+                    <th>描述</th>
+                </tr>
+                <tr>
+                    <td>element.innerHTML = new html content</td>
+                    <td>改变元素的innerHTML</td>
+                </tr>
+                <tr>
+                    <td>element.attribute = new value</td>
+                    <td>改变HTML元素的属性值</td>
+                </tr>
+                <tr>
+                    <td>element.setAttribute(attribute, value)</td>
+                    <td>改变HTML元素的属性值</td>
+                </tr>
+                <tr>
+                    <td>element.style.property = new style</td>
+                    <td>改变HTML元素的样式</td>
+                </tr>
+            </table>
+        </li>
+        <li>添加和删除元素
+            <table border="1" cellspacing="0" cellpadding="0">
+                <tr>
+                    <th>方法</th>
+                    <th>描述</th>
+                </tr>
+                <tr>
+                    <td>document.createElement(element)</td>
+                    <td>创建HTML元素</td>
+                </tr>
+                <tr>
+                    <td>document.removeChild(element)</td>
+                    <td>删除HTML元素</td>
+                </tr>
+                <tr>
+                    <td>document.appendChild(element)</td>
+                    <td>添加HTML元素</td>
+                </tr>
+                <tr>
+                    <td>document.replaceChild(element)</td>
+                    <td>替换HTML元素</td>
+                </tr>
+                <tr>
+                    <td>document.write(text)</td>
+                    <td>可写入HTML</td>
+                </tr>
+            </table>
+        </li>
+    </ul>
+    <ul>
+        <li>什么是事件
+            <ul>
+                <li>事件指的是在html元素上发生的事情</li>
+                <li>比如图片元素被点击</li>
+                <li>事件触发时，可设置执行一段js代码</li>
+            </ul>
+        </li>
+        <li>常见的HTML事件
+            <table border="1" cellspacing="0" cellpadding="0">
+                <tr>
+                    <th>方法</th>
+                    <th>描述</th>
+                </tr>
+                <tr>
+                    <td>html元素发生改变</td>
+                    <td>onchange</td>
+                </tr>
+                <tr>
+                    <td>用户点击了元素</td>
+                    <td>onclick</td>
+                </tr>
+                <tr>
+                    <td>鼠标移动了元素上</td>
+                    <td>onmouseover</td>
+                </tr>
+                <tr>
+                    <td>鼠标离开元素</td>
+                    <td>onmouseout</td>
+                </tr>
+                <tr>
+                    <td>按下键盘</td>
+                    <td>onkeydown</td>
+                </tr>
+                <tr>
+                    <td>页面已经完成加载</td>
+                    <td>onload</td>
+                </tr>
+            </table>
+        </li>
+        <li>怎么对事件作出反应
+            <ul>
+                <li>通过元素的事件属性</li>
+                <li>启用事件监听器
+                    <ul>
+                        <li>什么是事件监听器
+                            <ul>
+                                <li>addEventListener给DOM对象添加事件处理程序</li>
+                                <li>removeEventListener删除给DOM对象的事件处理程序</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>onclick和addEventListener的区别
+            <ul>
+                <li>onclick会被覆盖</li>
+                <li>addEventListener可以同时注册多个，根据注册顺序，先后执行</li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        let h1 = document.getElementsByTagName('h1')[0]
+        console.log(h1.outerHTML)
+        let h2 = document.getElementById('h1')
+        console.log(h2)
+        let h3 = document.getElementsByClassName('h')
+        console.log(h3)
+        let h4 = document.querySelector('#h1')
+        console.log(h4)
+        let h5 = document.querySelector('.h')
+        console.log(h5)
+        let h6 = document.querySelectorAll('.h')
+        console.log(h6)
+            // h1.innerHTML = "溪竹博客"
+            //     // h1.id = "xizhu"
+            // h1.setAttribute('id', 'xjdwd')
+            // h1.style.color = 'red'
+            // h1.style.backgroundColor = 'black'
+            // let img1 = document.createElement('img')
+            // console.log(img1)
+            // img1.setAttribute('src', 'http://127.0.0.1:5500/css/1d868701bb196cdd16e0d8869c9a00b1.jpeg')
+            // img1.setAttribute('alt', '')
+            //     // document.body.append(img1)
+            // h1.append(img1)
+        function test() {
+            console.log(document.querySelectorAll('div'))
+        }
+        console.log(document.getElementsByClassName('xdclass'))
+        let div1 = document.getElementsByClassName('xdclass')[0]
+
+        function test1() {
+            console.log('我点击了xdclass.net')
+        }
+        div1.addEventListener('click', test1);
+        div1.removeEventListener('click', test1);
+        document.getElementById('div2').onclick = test1
+            // div2.addEventListener('click', test1)
+    </script>
+</body>
+
+</html>

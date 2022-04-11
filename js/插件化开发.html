@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>需求：写一个对两个数字进行加法运算计算器</li>
+            <li>为什么要写在函数里
+                <ul>
+                    <li>因为函数里声明的变量或者函数，对外界无影响</li>
+                    <li>为了让函数在浏览器加载的时候执行，那么还要用立即函数</li>
+                </ul>
+            </li>
+            <li>步骤：
+                <ul>
+                    <li>声明一个构造函数</li>
+                    <li>将公共方法写在原型上</li>
+                    <li>将构造函数挂在到window上</li>
+                    <li>写一个立即执行函数</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script>
+        (function() {
+            function Sum() {}
+            Sum.prototype.add = function(num1, num2) {
+                return num1 + num2
+            };
+            window.Sum = Sum;
+        })();
+
+        let sum = new Sum()
+        let a = sum.add(4, 5)
+        console.log(a)
+    </script>
+</body>
+
+</html>

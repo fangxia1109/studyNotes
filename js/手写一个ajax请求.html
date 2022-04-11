@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax请求</title>
+</head>
+
+<body>
+    <script>
+        // 创建对象
+        let xhr;
+        if (window.XMLHttpRequest) {
+            xhr = new XMLHttpRequest();
+        } else {
+            // code for IE6，IE5兼容
+            xhr = new ActiveXObject('Microsoft.XMLHTTP');
+        }
+
+        // 设置请求方式还有地址
+        xhr.open('GET', 'https://api.xdclass.net/pub/api/v1/simple_line/list')
+
+        // 发起请求(可选参数， null)
+        xhr.send()
+
+        // 注册事件，等到浏览器返回结果接受响应
+        // 注册事件。onreadystatechange事件，状态改变就会调用。
+        // 如果要在数据完整请求回来的时候才调用，我们需要手动写一些判断的逻辑
+        xhr.onreadystatechange = function() {
+            // 为了保证数据完整返回，我们一般会判断两个值
+            console.log(xhr, 'xhr')
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    alert(xhr.responseText);
+                } else {
+                    alert('出错了，Err' + xhr.status)
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
