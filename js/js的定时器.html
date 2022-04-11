@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js的定时器</title>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>延迟执行
+                <div>setTimeout(function(){}, 毫秒)</div>
+                <ul>
+                    <li>停止
+                        <div>clearTimeout(timer) //参数必须是由setTimeout()返回的timer</div>
+                    </li>
+                </ul>
+            </li>
+            <li>定时执行
+                <div>setInterval(function(){}, 毫秒)</div>
+                <ul>
+                    <li>停止
+                        <div>clearInterval(timer) //参数必须是由setInterval()返回的timer</div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script>
+        let timer = setTimeout(function() {
+            console.log(5555)
+        }, 2000)
+        clearTimeout(timer)
+        let timer1 = setInterval(function() {
+            console.log(11111111)
+        }, 3000)
+        console.log(timer1, 'timer1')
+        setTimeout(function() {
+            clearInterval(timer1)
+            console.log('清除定时器')
+        }, 4000)
+    </script>
+</body>
+
+</html>
