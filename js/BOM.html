@@ -9,7 +9,31 @@
 </head>
 
 <body>
-
+    <ul>
+        <li>什么是BOM
+            <ul>
+                <li>浏览器对象模型(Browser Object Model)</li>
+            </ul>
+        </li>
+        <li>内置对象
+            <ul>
+                <li>window</li>
+                <li>screen</li>
+                <li>location</li>
+                <li>localStorage</li>
+                <li>history</li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        localStorage.setItem('username', 'fangxia')
+        localStorage.removeItem('username')
+        console.log(window, 'window')
+        console.log(screen, 'screen')
+        console.log(location, 'location')
+        console.log(localStorage, 'localStorage')
+        console.log(history, 'history')
+    </script>
 </body>
 
 </html>

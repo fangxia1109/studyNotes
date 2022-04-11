@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cookie</title>
+</head>
+
+<body>
+    <script>
+        window.onload = function() {
+            checkCookie()
+        }
+
+        //获取cookie
+        function getCookie(name) {
+            let username = name + '='
+            let list = document.cookie.split(';') //将多个cookie字符串以;分割数组
+            for (let i = 0; i < list.length; i++) {
+                if (list[i].indexOf(username) >= 0) {
+                    return list[i].split('=')[1]
+                }
+            }
+            return ''
+        }
+
+        // 保存cookie
+        function setCookie(name, value, exday) {
+            let d = new Date()
+            d.setTime(d.getTime() + exday * 24 * 60 * 60 * 1000)
+            let expires = 'expires=' + d.toGMTString()
+            document.cookie = name + '=' + value + ';' + expires
+        }
+
+        //检查cookie
+        function checkCookie() {
+            let username = getCookie('username')
+            if (username) {
+                alert('欢迎' + username + '再次访问')
+            } else {
+                username = prompt('请输入你的名字:', '')
+                if (username) {
+                    setCookie('username', username, 30)
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
