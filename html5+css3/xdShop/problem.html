@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            /* display: flex;
+      justify-content: center;
+      align-items: center; */
+            /* display: table-cell;
+      text-align: center;
+      vertical-align: middle; */
+            /* width: 100px;
+      height: 100px;
+      background-color: #000; */
+            /* overflow: hidden; */
+            /* border:1px solid transparent; */
+            /* padding: 1px; */
+            /* display: inline-block; */
+            width: 50px;
+        }
+        
+        .inner {
+            /* display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp:2;
+      overflow: hidden;
+      text-overflow: ellipsis; */
+            /* float: left; */
+            display: inline-block;
+            margin-bottom: 30px;
+            width: 40px;
+            height: 40px;
+            background-color: #ff0000;
+        }
+        
+        .inner2 {
+            /* float: left; */
+            display: inline-block;
+            margin-top: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="inner">111</div>
+        <div class="inner2">222</div>
+    </div>
+    <ul>
+        <li>怎么让不定宽高的div，垂直水平居中
+            <ul>
+                <li>flex布局
+                    <div>给父元素设置：<br>&nbsp;&nbsp;&nbsp;&nbsp;display:flex; <br>&nbsp;&nbsp;&nbsp;&nbsp;justify-content: center; <br>&nbsp;&nbsp;&nbsp;&nbsp;align-items: center</div>
+                </li>
+                <li>transform属性
+                    <div>利用绝对定位以及translate属性 <br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;position:absolute;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left:50%;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;top:50%;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transform:translate(-50%,-50%)<br>&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+                </li>
+                <li>表格属性table-cell
+                    <div>父元素设置<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display:table-cell;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text-align:center;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vertical-align: middle;<br>&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+                    <div>子元素设置
+                        <h style="color:rgb(21, 172, 28)">display:inline-block</h>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li>CSS隐藏元素的几种方式及区别
+            <ul>
+                <li>display:none,元素为彻底消失，原有空间被其他元素占有</li>
+                <li>visibility:hidden与display:none的区别：原有空间还是会存在，无法触发其点击事件
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;适用于元素隐藏后不希望页面布局会发生变化的场景</div>
+                </li>
+                <li>opacity:0,透明设置为零让元素看不见，原有空间也是保留下来的，但是它是可以触发点击事件</li>
+            </ul>
+        </li>
+        <li>CSS控制文字，超出部分显示省略号
+            <ul>
+                <li>单行文本的溢出显示省略号
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;text-overflow:ellipsis;<br> &nbsp;&nbsp;&nbsp;&nbsp;overflow:hidden;
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;white-space:nowrap;
+                        <br>
+                    </div>
+                </li>
+                <li>多行文本溢出显示省略号
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;display: -webkit-box; <br> &nbsp;&nbsp;&nbsp;&nbsp;-webkit-box-orient: vertical; <br> &nbsp;&nbsp;&nbsp;&nbsp;-webkit-line-clamp: 2; <br> &nbsp;&nbsp;&nbsp;&nbsp;overflow: hidden; <br> &nbsp;&nbsp;&nbsp;&nbsp;text-overflow:
+                        ellipsis;
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li>CSS外边距合并问题(外边距塌陷)
+            <ul>
+                <li>子元素与父元素的外边距问题
+                    <div>
+                        父元素上设置
+                        <ol>
+                            <li>overflow:hidden</li>
+                            <li>border: 1px solid transparent</li>
+                            <li>padding: 1px</li>
+                            <li>display: inline-block</li>
+                        </ol>
+                    </div>
+                </li>
+                <li>兄弟元素外边距合并问题
+                    <div>
+                        <ol>
+                            <li>float: left</li>
+                            <li>display: inline-block</li>
+                        </ol>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</body>
+
+</html>
