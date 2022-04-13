@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video标签</title>
+</head>
+
+<body>
+    <video width="500" height="400" src="VID20211016171331.mp4" controls loop muted poster="../../css/1d868701bb196cdd16e0d8869c9a00b1.jpeg" autoplay></video>
+    <audio src="VID20211016171331.mp4" controls></audio>
+    <ul>
+        <li>video标签-视频播放
+            <ul>
+                <li>video标签可选属性
+                    <ul>
+                        <li>autoplay：自动播放，视频就绪后马上播放</li>
+                        <li>controls：显示控件</li>
+                        <li>width：视频播放器的宽度</li>
+                        <li>height：视频播放器的高度</li>
+                        <li>loop：循环播放</li>
+                        <li>muted：视频静音</li>
+                        <li>poster：视频下载时显示的封面图，用户点击播放时隐藏</li>
+                        <li>preload：三个值
+                            <ul>
+                                <li>auto：页面加载，开始加载音频/视频</li>
+                                <li>metadata：页面加载后仅加载音频/视频的元数据</li>
+                                <li>none：页面加载后不加载音频/视频</li>
+                            </ul>
+                        </li>
+                        <li>src：视频的路径</li>
+                    </ul>
+                </li>
+                <li>video支持三种视频格式：mp4、webm、ogg</li>
+                <li>video元素支持多个source元素，source元素可以链接不同的视频文件，浏览器会使用第一个可识别的格式</li>
+            </ul>
+        </li>
+        <li>audio标签-音频播放
+            <ul>
+                <li>支持三种音频格式：MP3、ogg、wav</li>
+                <li>audio标签可选属性：controls、loop、muted、preload、src</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+
+</html>

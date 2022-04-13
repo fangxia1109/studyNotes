@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本地存储</title>
+</head>
+
+<body>
+    <ul>
+        <li>什么是HTML5web存储
+            <ul>
+                <li>其可以在本地储存用户的浏览数据。web存储相对cookie更加的安全与快速，它的数据不会保存在服务器上。也可以存储大量的数据，而不影响网站的性能</li>
+            </ul>
+        </li>
+        <li>客户端储存数据之localStorage
+            <ul>
+                <li>用于长久保存网站的数据，保存的数据没有过期时间，可手动删除
+
+                </li>
+                <li>常用API如下：
+                    <ul>
+                        <li>保存数据：localStorage.setItem(key, value)</li>
+                        <li>读取数据：localStorage.getItem(key)</li>
+                        <li>删除单个数据：localStorage.removeItem(key)</li>
+                        <li>删除所有数据：localStorage.clear()</li>
+                        <li>得到某个索引的key：localStorage.key(index)</li>
+                    </ul>
+                </li>
+                <li>提示：键/值对通常以字符串储存</li>
+            </ul>
+        </li>
+        <li>客户端储存数据之sessionStorage
+            <ul>
+                <li>sessionStorage储存的数据在用户关闭浏览器窗口后，数据会被删除</li>
+                <li>API如localStorage相同</li>
+            </ul>
+        </li>
+        <li>cookie，localStorage以及sessionStorage的区别
+            <ul>
+                <li>共同点：都是保存在浏览器端，且是同源共享的</li>
+                <li>区别：
+                    <ul>
+                        <li>cookie数据会在浏览器和服务器之间进行传递，每次http请求都会携带cookie，而sessionStorage和localStorage仅在客户端保存，不参与服务器通信</li>
+                        <li>存储大小限制也不同，cookie数据不能超过4k，sessionStorage和localStorage的大小一般是5M</li>
+                        <li>数据的周期时间不同，cookie数据在设置的过期时间内一直有效，sessionStorage数据会在当前浏览器窗口时清楚，localStorage数据则始终存在，即使关闭浏览器或窗口，直到手动清除数据</li>
+                        <li>cookie相比其他两个安全性不高，容易被拦截获取</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</body>
+
+</html>

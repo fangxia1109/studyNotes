@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>常见HTML5和CSS3面试题
+            <ul>
+                <li>CSS实现垂直水平居中
+                    <ol>
+                        <li>水平居中
+                            <ol>
+                                <li>内联元素 text-align:center</li>
+                                <li>块级元素 margin left和right设置auto margin: 0 auto(需要设置块级元素的宽度)</li>
+                                <li>利用flex布局的justify-content: center在主轴上水平居中</li>
+                            </ol>
+                        </li>
+                        <li>垂直居中
+                            <ul>
+                                <li>将height和line-height设为相同值使元素垂直居中</li>
+                                <li>利用vertical-align: middle实现子元素的垂直居中</li>
+                                <li>利用flex布局的flex-direction:column;和justify-content:center;实现垂直居中</li>
+                                <li>绝对定位position: absolute</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </li>
+                <li>解释css sprites，如何使用
+                    <div>css精灵把一堆小的图片合并成一张图片，减轻服务器对图片的请求数量，应用background-position对图片进行截取</div>
+                </li>
+                <li>CSS3有哪些新特性？
+                    <div>css3实现圆角(border-radius),阴影(box-shadow),对文字加特效(text-shadow),线性渐变(gradient),transform(平移，旋转，缩放，倾斜),增加了更多的CSS选择器，多背景，媒体查询，border-image,flex布局等</div>
+                </li>
+                <li>左右布局，一侧定宽，另一侧自适应撑满
+                    <div>采用flex布局,一侧设置固定宽度，另一侧设置flex:1,让元素分配剩下的空间</div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</body>
+
+</html>

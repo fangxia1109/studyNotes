@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas</title>
+</head>
+
+<body>
+    <div><canvas id="myCanvas" width="1000" height="200" style="border: 1px solid #000"></canvas></div>
+    <ul>
+        <li>canvas定义
+            <div>canvas标签用来定义图形，是一个图形容器，常常用来进行绘图操作，要与js搭配使用</div>
+        </li>
+        <li>创建一个画布容器
+            <div>width,height定义画布容器大小</div>
+        </li>
+        <li>canvas本身没有绘图能力，绘图操作要在js里进行
+            <ol>
+                <li>通过js获取canvas元素对象</li>
+                <li>创建context对象，context对象拥有多种绘制方法，一般通过调用获取的canvas元素对象下的方法getContext来创建</li>
+                <li>实例线条
+                    <div>
+                        <ul>
+                            <li>// 获取canvas元素 let canvas = document.getElementById('myCanvas') console.log(canvas, 'canvas')</li>
+                            <li>// 获取canvas上下文 let cxt = canvas.getContext("2d")</li>
+                            <li>//开始一段路径 cxt.beginPath() cxt.lineWidth = 5</li>
+                            <li>// 将画笔指定初始坐标点 cxt.moveTo(20, 20)</li>
+                            <li>// 添加一个点，画一条线条到这个点 cxt.lineTo(100, 70) cxt.lineTo(200, 50)</li>
+                            <li>//关闭路径，闭合从起始坐标点到结束坐标点的路径 cxt.closePath()
+                            </li>
+                            <li>// 进行绘制操作 cxt.stroke()
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>实例矩形
+                    <div>rect(x,y,width,height)</div>
+                    <ul>
+                        <li>x,y分别为矩形左上角横纵坐标点</li>
+                        <li>width,height为矩形的宽高</li>
+                        <li>// 开始一条路径 cxt.beginPath() // 创建矩形 cxt.rect(300, 10, 150, 150) // 填充颜色 cxt.fillStyle = "black" cxt.fill() // 执行绘制 cxt.stroke()
+                        </li>
+                    </ul>
+                </li>
+                <li>实例圆形
+                    <div>arc(x, y, r, sAngle, eAngle, counterclockwise)方法创建弧/曲线</div>
+                    <ul>
+                        <li>x,y分别为圆的中心的横纵坐标</li>
+                        <li>r为圆的半径</li>
+                        <li>sAngle起始角，以弧度计。(弧的圆形的三点钟位置是0度)</li>
+                        <li>eAngle结束角，以弧度计。</li>
+                        <li>counterclockwise可选。规定顺时针还是逆时针绘图。false为顺时针，true为逆时针</li>
+                    </ul>
+                </li>
+            </ol>
+        </li>
+    </ul>
+    <script>
+        // 获取canvas元素
+        let canvas = document.getElementById('myCanvas')
+        console.log(canvas, 'canvas')
+            // 获取canvas上下文
+        let cxt = canvas.getContext("2d")
+            //开始一段路径
+        cxt.beginPath()
+            // cxt.lineWidth = 5
+            // 将画笔指定初始坐标点
+        cxt.moveTo(20, 20)
+            // 添加一个点，画一条线条到这个点
+        cxt.lineTo(100, 70)
+        cxt.lineTo(200, 50)
+            //关闭路径，闭合从起始坐标点到结束坐标点的路径
+        cxt.closePath()
+            // 进行绘制操作
+        cxt.stroke()
+
+        // 开始一条路径
+        cxt.beginPath()
+            // 创建矩形
+        cxt.rect(300, 10, 150, 150)
+            // 填充颜色
+        cxt.fillStyle = "black"
+        cxt.fill()
+            // 执行绘制
+        cxt.stroke()
+
+        // 开始一条路径
+        cxt.beginPath()
+            // 创建原型
+        cxt.arc(600, 100, 50, 0, 1.5 * Math.PI, false)
+            // 执行绘制
+        cxt.stroke()
+    </script>
+</body>
+
+</html>
