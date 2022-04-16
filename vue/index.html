@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/javascript" src="vue.js"></script>
+    <script type="text/javascript">
+        new Vue({
+            el:'#app',
+            template:`
+            <div>
+                <div>我这里是模板内容{{msg}}</div>
+                <div v-text="mytext"></div>
+                <div v-html="myhtml"></div>
+                <button v-if="num == 1">测试v-if</button>
+                <button v-else-if="num == 2">测试v-else-if</button>
+                <button v-else>测试v-else</button>
+                <div v-show="checkshow">我是v-show</div>
+                <ul>
+                    <li v-for="(item,index) in arrayfor">
+                        {{index}}:{{item}}
+                    </li>
+                </ul>
+                <ul>
+                    <li v-for="(oj,key,index) in ojfor">
+                        {{oj}}-{{key}}-{{index}}
+                    </li>
+                </ul>
+            </div>
+            `,
+            data: function(){
+                return {
+                    msg: 'hello Vue',
+                    mytext: '我这里是mytext',
+                    myhtml: '<h1>我这里是myhtml</h1>',
+                    checkif: true,
+                    checkshow: false,
+                    num:3,
+                    arrayfor: ['篮球','足球','乒乓球'],
+                    ojfor: {
+                        play: '篮球',
+                        people: 'ming',
+                        age: '19'
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

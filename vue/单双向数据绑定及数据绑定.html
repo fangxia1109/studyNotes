@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/javascript" src="vue.js"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: "#app",
+            template:`
+                <div>
+                    单向数据绑定
+                    <input type="text" v-bind:value="name" :class="name">
+                    双向数据绑定
+                    <input type="text" v-model="name">{{name}}
+                    <button v-on:click="change">点击我改变name变量</button>
+                </div>
+            `,
+            data:function(){
+                return {
+                    name:'hello',
+                    classname: 'helloworld'
+                }
+            },
+            methods: {
+                change:function(){
+                    this.name = this.classname
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

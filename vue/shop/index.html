@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            课程：<input type="text" v-model="dataForm.className"> 价格：
+            <input type="text" v-model="dataForm.classPrice">
+            <button @click="addClass()">添加</button>
+        </div>
+        <div>
+            <ul v-for="(item, index) in classList">
+                <li>{{item.className}}---￥{{item.classPrice}}
+                    <button @click="addShop(item, index)">添加到购物车</button>
+                </li>
+            </ul>
+        </div>
+        <chat :shoplist='shopList'></chat>
+    </div>
+    <script type="text/javascript" src="vue.js"></script>
+    <script type="text/javascript">
+        let Chat = {
+            props: ['shoplist'],
+            template: `<div>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>选中</th>
+                            <th>课程</th>
+                            <th>数量</th>
+                            <th>价格</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr v-for="(item, index) in shoplist">
+                            <td><input type="checkbox" v-model="item.checked"></td>
+                            <td>{{item.className}}</td>
+                            <td>
+                                <span @click="del(item,index)">-</span> {{item.number}}
+                                <span @click="add(item,index)">+</span>
+                            </td>
+                            <td>{{item.number * item.classPrice}}</td>
+                        </tr>
+                        <tr>
+                          <td colspan="2">选中的课程: {{checkedLength}}/{{shoplist.length}}</td>
+                          <td colspan="2">需付金额: {{totalPrice}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>`,
+            computed: {
+                checkedLength() {
+                    return this.shoplist.filter(v => v.checked).length
+                },
+                totalPrice() {
+                    let total = 0
+                    this.shoplist.forEach(v => {
+                        if (v.checked) {
+                            total += v.number * v.classPrice
+                        }
+                    })
+                    return total
+                }
+            },
+            watch: {
+                shoplist: {
+                    handler() {
+                        window.localStorage.setItem('shop', JSON.stringify(this.shoplist))
+                    },
+                    deep: true
+                }
+            },
+            methods: {
+                del(e, index) {
+                    console.log(e)
+                    if (e.number > 1) {
+                        e.number--
+                    } else {
+                        if (window.confirm(`是否删除${e.className}?`)) {
+                            this.shoplist.splice(index, 1)
+                        }
+                    }
+                },
+                add(e) {
+                    e.number++
+                }
+            }
+        }
+        new Vue({
+            el: '#app',
+            components: {
+                Chat
+            },
+            data() {
+                return {
+                    classList: [{
+                        className: 'HTML',
+                        classPrice: 100
+                    }, {
+                        className: 'CSS',
+                        classPrice: 200
+                    }],
+                    shopList: [],
+                    // checkList: [],
+                    sumPrice: 0,
+                    dataForm: {
+                        className: '',
+                        classPrice: ''
+                    }
+                }
+            },
+            created() {
+                if (window.localStorage.getItem('shop')) {
+                    this.shopList = JSON.parse(window.localStorage.getItem('shop'))
+                }
+            },
+            methods: {
+                addClass() {
+                    if (this.dataForm.className === null || this.dataForm.price === '') {
+                        alert('请输入课程')
+                        return false
+                    }
+                    if (this.dataForm.classPrice === null || this.dataForm.classPrice === '') {
+                        alert('请输入课程价格')
+                        return false
+                    }
+                    this.classList.push({
+                        className: this.dataForm.className,
+                        classPrice: this.dataForm.classPrice
+                    })
+                    this.dataForm.className = ''
+                    this.dataForm.classPrice = ''
+                },
+                addShop(e, i) {
+                    if (this.shopList.length > 0) {
+                        // let result = this.shopList.some(item => {
+                        //     if (item.className === e.className) {
+                        //         return true
+                        //     }
+                        // })
+                        let result = this.shopList.find(item => item.className === e.className)
+                        if (result) {
+                            this.shopList.forEach(item => {
+                                if (item.className === e.className) {
+                                    item.number++;
+                                }
+                            })
+                        } else {
+                            let obj = {
+                                className: e.className,
+                                number: 1,
+                                classPrice: e.classPrice,
+                                checked: true
+                            }
+                            this.shopList.push(obj)
+                        }
+                    } else {
+                        let obj = {
+                            className: e.className,
+                            number: 1,
+                            classPrice: e.classPrice,
+                            checked: true
+                        }
+                        this.shopList.push(obj)
+                    }
+                    console.log(this.shopList)
+                },
+            }
+        })
+    </script>
+</body>
+
+</html>
