@@ -724,14 +724,65 @@
 
     * 抽离出公共文件
 
-      ```vue
-      optimization.splitChunks:all
-      ```
+      * 目的
+
+        * 将多个页面重复引入的模块抽离成公共的模块，避免重复打包，减少包体积
+
+      * 配置
+
+        ```vue
+        optimization: {
+        	splitChunks: {
+        		chunks: 'all'
+        	}
+        }
+        ```
+
+      * 可视化工具
+
+        * 安装
+
+          ```vue
+          npm install webpack-bundle-analyzer -D
+          ```
+
+        * 配置
+
+          ```vue
+          //webpack.config.js
+          const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+          module.exports = {
+          	plugins: [new BundleAnalyzerPlugin()]
+          }
+          ```
+
+        * 图示
+
+          ![image-20220416102052131](C:\Users\fangx\AppData\Roaming\Typora\typora-user-images\image-20220416102052131.png)
 
     * 动态导入
 
-      * 按需加载
+      * 按需加载（懒加载）
+      
+        * 默认不加载，只有页面展示或者事件触发后才加载
+      
+        * 指定打包后的文件名称
+      
+          ```vue
+          webpackChunkName: 'xxx'
+          ```
+      
       * 预加载
+      
+        * 先等待其他资源加载完成之后再加载
+      
+        * 指定需要预加载的内容
+      
+          ```vue
+          webpackPrefetch: true
+          ```
+
+  * 
 
   * 多入口打包
 
@@ -756,7 +807,171 @@
       })
       ```
 
+
+* 提高开发效率和性能优化
+
+  * 掌握代码映射Source Map定位问题
+
+    * Source Map
+
+      * 定义
+
+        * 源代码和构建后代码的映射
+
+      * 目的
+
+        * 当项目运行出现问题或者报错时，通过控制台能够快速的定位到具体出错的代码
+
+      * 配置
+
+        ```vue
+        devtool: "source-map"
+        ```
+
+      * 推荐配置
+
+        ```vue
+        devtool: "eval-cheap-module-source-map"
+        ```
+
+        * eval具有最好的性能，但不能帮助你转译代码
+        * cheap配置的map质量会稍微差一点（保留行报错，没有列报错），但是不影响问题定位，还可以提高性能
+        * module包含第三方模块的报错
+
+* 深入理解Tree Shaking
+
+  * TreeShaking(摇树)
+
+    * 描述移除javaScript上下文中的未引用代码
+      * 函数return后的代码
+      * 只声明未使用的代码
+      * 只引入未使用的代码
+
+  * 注意
+
+    * Tree-shaking只对ES Moudle规范的模块起作用
+    * 针对静态结构进行分析，只有import和export是静态的导入和导出。而commonjs有动态导入和导出的功能，无法进行静态分析
+
+  * 与Source Map有兼容问题
+
+    * devtool只能设置以下四种
+
+      ```vue
+      devtool: source-map | inline-source-map | hidden-source-map | nosources-source-map
+      ```
+
+    * eval模式是将js输出为字符串不是ES Modules规范，导致Tree Shaking失效
+
+  * 使用
+
+    * 生产模式
+
+      * 自动开启
+
+    * 开发模式
+
+      * usedExports
+
+        ```vue
+        const TerserPlugin=require('terser-webpack-plugin')
+        optimization:{
+          // 标记未使用的代码
+          usedExports:true,
+          // 删除已经标记未使用的代码
+          minimize:true,
+          minimizer:[new TerserPlugin()]
+        }
+        ```
+
+      * sideEffects
+
+        * 副作用
+
+          * 引入一个模块，调用了模块中的函数，或者修改当前模块、全局的数据，就有副作用
+            * 修改全局的变量
+            * 在原型上扩展方法
+            * css的引入
+
+        * 开启副作用
+
+          ```vue
+          optimization: {
+          	// 开启副作用标识
+            	sideEffects:true,
+          }
+          ```
+
+        * 标识代码是否有副作用
+
+          ```vue
+          // package.json
+          "sideEffects":false (告诉webpack所有代码都没有副作用)
+          "sideEffects":true (告诉webpack所有代码都有副作用)
+          "sideEffects":['xxx.js','*.less']（告诉webpack哪些有副作用，不移除）
+          ```
+
+* 剖析webpack中的缓存
+
+  * babel缓存
+
+    * 特点
+
+      * 第二次构建时，会读取之前的缓存
+
+    * 配置
+
+      ```vue
+      use: [
+      	options: {
+      		cacheDirectory: true
+      	}
+      ]
+      ```
+
+  * 文件资源缓存
+
+    * 配置webpack哈希值
+      * hash
+      * chunkhash
+      * contenthash
+
+* 剖析webpack中的模块解析和排除依赖打包
+
+  * 模块解析
+
+    * 配置
+
+      ```vue
+      //webpack.config.js
+      resolve: {
+      	alias: {
+      		//指定路径的别名
+      		'@': resolve('src')
+      	},
+      	//自动解析模块的后缀名
+      	extensions: ['.js', '.json', '.less']
+      }
+      ```
+
+  * 排除依赖打包
+
+    * 配置
+
+      ```vue
+      // webpack.config.js
+      externals:{
+        'jquery':'jQuery'
+      }
+      ```
+
+      ```vue
+      // index.
+      <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      ```
+
 * 
+
+
 
 * webpack有什么作用
 
