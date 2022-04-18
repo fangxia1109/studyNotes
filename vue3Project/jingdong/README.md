@@ -1,4 +1,4 @@
-# vu3project
+# jingdong
 
 ## Project setup
 ```
