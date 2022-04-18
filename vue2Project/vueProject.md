@@ -67,4 +67,13 @@
 
     **webpack的配置在这个属性里修改configureWebpack**
 
+* ui库选择
+
+  PC端是element ui
+
+  移动端是vant和cube-ui
+
+  * vant: https://youzan.github.io/vant/#/zh-CN/intro
+  * cube-ui:https://didi.github.io/cube-ui/#/zh-CN/docs/switch
+
 * 
