@@ -236,55 +236,74 @@ module.exports = {
 
                 //获取分类页面右视图列表
                 app.get('/api/getRigthList', (req, res) => {
-                    const { type } = req.query
-                    switch (type) {
+                    switch (req.query.type) {
                         case '0':
                             res.json({
                                 list: [{
-                                    label: '11111111'
+                                    label: '手机1',
+                                    img: 'https://file.xdclass.net/video/2022/banner/03.jpeg'
                                 }, {
-                                    label: '11111111'
+                                    label: '手机2',
+                                    img: 'https://file.xdclass.net/video/2022/banner/03.jpeg'
                                 }, {
-                                    label: '11111111'
+                                    label: '手机3',
+                                    img: 'https://file.xdclass.net/video/2022/banner/03.jpeg'
                                 }, {
-                                    label: '11111111'
+                                    label: '手机4',
+                                    img: 'https://file.xdclass.net/video/2022/banner/03.jpeg'
                                 }, {
-                                    label: '11111111'
+                                    label: '手机5',
+                                    img: 'https://file.xdclass.net/video/2022/banner/03.jpeg'
                                 }, {
-                                    label: '11111111'
+                                    label: '手机6',
+                                    img: 'https://file.xdclass.net/video/2022/banner/03.jpeg'
                                 }, {
-                                    label: '11111111'
+                                    label: '手机7',
+                                    img: 'https://file.xdclass.net/video/2022/banner/03.jpeg'
                                 }, {
-                                    label: '11111111'
+                                    label: '手机8',
+                                    img: 'https://file.xdclass.net/video/2022/banner/03.jpeg'
                                 }, {
-                                    label: '11111111'
+                                    label: '手机9',
+                                    img: 'https://file.xdclass.net/video/2022/banner/03.jpeg'
                                 }, {
-                                    label: '11111111'
+                                    label: '手机10',
+                                    img: 'https://file.xdclass.net/video/2022/banner/03.jpeg'
                                 }, ]
                             });
                             break;
                         case '1':
                             res.json({
                                 list: [{
-                                    label: '22222222'
+                                    label: '食物1',
+                                    img: 'https://file.xdclass.net/video/2022/banner/03.jpeg'
                                 }, {
-                                    label: '22222222'
+                                    label: '食物2',
+                                    img: 'https://file.xdclass.net/video/2022/banner/03.jpeg'
                                 }, {
-                                    label: '22222222'
+                                    label: '食物3',
+                                    img: 'https://file.xdclass.net/video/2022/banner/03.jpeg'
                                 }, {
-                                    label: '22222222'
+                                    label: '食物4',
+                                    img: 'https://file.xdclass.net/video/2022/banner/03.jpeg'
                                 }, {
-                                    label: '22222222'
+                                    label: '食物5',
+                                    img: 'https://file.xdclass.net/video/2022/banner/03.jpeg'
                                 }, {
-                                    label: '22222222'
+                                    label: '食物6',
+                                    img: 'https://file.xdclass.net/video/2022/banner/03.jpeg'
                                 }, {
-                                    label: '22222222'
+                                    label: '食物7',
+                                    img: 'https://file.xdclass.net/video/2022/banner/03.jpeg'
                                 }, {
-                                    label: '22222222'
+                                    label: '食物8',
+                                    img: 'https://file.xdclass.net/video/2022/banner/03.jpeg'
                                 }, {
-                                    label: '22222222'
+                                    label: '食物9',
+                                    img: 'https://file.xdclass.net/video/2022/banner/03.jpeg'
                                 }, {
-                                    label: '22222222'
+                                    label: '食物10',
+                                    img: 'https://file.xdclass.net/video/2022/banner/03.jpeg'
                                 }, ]
                             });
                             break;
@@ -439,6 +458,34 @@ module.exports = {
                             });
                             break;
                     }
+                })
+
+                //获取我的列表数据
+                app.get('/api/getMineList', (req, res) => {
+                    res.json({
+                        list: [{
+                                label: '商品收藏',
+                                list: [
+                                    { label: '商品1' },
+                                    { label: '商品2' }
+                                ]
+                            },
+                            {
+                                label: '我的足迹',
+                                list: [
+                                    { label: '商品1' },
+                                    { label: '商品2' }
+                                ]
+                            },
+                            {
+                                label: '店铺收藏',
+                                list: [
+                                    { label: '店铺1' },
+                                    { label: '店铺2' }
+                                ]
+                            }
+                        ]
+                    })
                 })
 
             }

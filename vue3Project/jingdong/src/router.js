@@ -25,6 +25,7 @@ export default new Router({
             // this generates a separate chunk (about.[hash].js) for this route
             // which is lazy-loaded when the route is visited.
             component: () =>
+                // 路由懒加载
                 import ( /* webpackChunkName: "about" */ './views/Login.vue')
         },
         {
@@ -60,13 +61,19 @@ export default new Router({
                     path: 'cart',
                     name: 'cart',
                     component: () =>
-                        import ('./views/Cart.vue')
+                        import ('./views/Cart.vue'),
+                    meta: {
+                        loginRequire: true //当有这个字段时，说明该页面有登录限制
+                    }
                 },
                 {
                     path: 'mine',
                     name: 'mine',
                     component: () =>
-                        import ('./views/Mine.vue')
+                        import ('./views/Mine.vue'),
+                    meta: {
+                        loginRequire: true //当有这个字段时，说明该页面有登录限制
+                    }
                 }
             ]
         },

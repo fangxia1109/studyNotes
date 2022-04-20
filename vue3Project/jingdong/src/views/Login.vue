@@ -72,7 +72,12 @@ export default {
                 if (result.code === 0) {
                     this.$store.commit('settoken', result.token)
                     window.localStorage.setItem('token', result.token)
-                    this.$router.replace({path: '/batnav/home'})
+                    // 如果路由不带参数，则会跳转到首页，如果带参数，则会重定向到参数地址
+                    if (this.$route.query.redirect) {
+                        this.$router.replace({path: this.$route.query.redirect})
+                    } else {
+                        this.$router.replace({path: '/batnav/home'})
+                    }
                 } else if (result.code === 1) {
                     alert(result.message)
                 }

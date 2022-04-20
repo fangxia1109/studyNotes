@@ -12,10 +12,12 @@
       class="batnav"
     >
     </cube-tab-bar>
+    <span class="countSum">{{countSum}}</span>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   data() {
     return {
@@ -45,6 +47,11 @@ export default {
       ],
     };
   },
+  computed: {
+    ...mapGetters({
+      countSum: 'countSum'
+    })
+  },
   methods: {
     //点击自身
     clickHandler(label) {
@@ -54,7 +61,6 @@ export default {
     //点击不同的
     changeHandler(label) {
       // if you clicked different tab, this methods can be emitted
-      console.log(label);
       switch (label) {
         case "首页":
           this.$router.push({ path: "/batnav/home" });
@@ -73,11 +79,35 @@ export default {
           break;
       }
     },
+    changeSelectedLabelDefault() {
+        console.log(this.$route.path)
+      switch(this.$route.path){
+        case '/batnav/index':
+          this.selectedLabelDefault = '首页';
+          break;
+        case '/batnav/list':
+          this.selectedLabelDefault = '分类';
+          break;
+        case '/batnav/search':
+          this.selectedLabelDefault = '搜索';
+          break;
+        case '/batnav/cart':
+          this.selectedLabelDefault = '购物车';
+          break;
+        case '/batnav/mine':
+          this.selectedLabelDefault = '我的';
+          break;
+      }
+    }
+  },
+  created() {
+    // 修改默认跳转页
+    this.changeSelectedLabelDefault()
   },
 };
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
 .cube-tab-bar.batnav
   position fixed
   bottom 0
@@ -102,4 +132,16 @@ export default {
   opacity 0
   -webkit-transform translate(-100% ,0)
   transform translate(-100%, 0)
+.countSum 
+  position fixed
+  background red
+  width 18px
+  height 18px
+  line-height 18px
+  font-size 14px
+  border-radius: 50%
+  z-index 1003
+  right 23%
+  bottom 33px
+  color #fff
 </style>
