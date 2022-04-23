@@ -1,0 +1,17 @@
+/* pages/index/index.wxss */
+.swiper {
+  width: 100%;
+  height: 300rpx;
+}
+.item_img {
+  width: 100%; 
+  height: 300rpx
+}
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.nav_item {
+  width: 20%
+}
