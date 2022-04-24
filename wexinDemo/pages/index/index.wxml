@@ -1,49 +1,28 @@
-<view>
-  <scroll-view scroll-x="true" class="nav" scroll-left="{{navScrollLeft}}">
-    <block wx:for="{{navData}}" wx:key="index">
-      <view class="nav_item {{currentNav == index ? 'active' : ''}}" data-current="{{index}}" bindtap="switchNav">{{item.text}}</view>
-    </block>
-  </scroll-view>
-  <swiper class="swiper" autoplay="true" interval="3000" duration="1000" indicator-dots="true" indicator-active-color="#007aff" circular="true">
-    <block wx:for="{{imglist}}" wx:key="index" >
-      <swiper-item >
-        <navigator url="{{item.url}}">
-          <image src="{{item.imageUrl}}" alt="" class="item_img"/>
-        </navigator>
-      </swiper-item>
-    </block>
-  </swiper>
-  {{score}}
-  <view wx:if="{{score < 60}}">不及格</view>
-  <view wx:elif="{{score > 80}}">优秀</view>
-  <view wx:else>及格</view>
-  {{testStr}}
-  <button type="primary" bindtap="change" loading="true" form-type="submit"> 改变分数 </button>
-  <button bindtouchstart="changeData" bindtouchend="tmove" bindlongpress="lpress">改变数据</button>
-  <view bindtap="containerTap" style="background-color: black; color:blanchedalmond">
-    <text catchtap="textTap">小程序</text>
-  </view>
-  <view capture-bind:tap="containerTap" style="background-color: black; color:blanchedalmond">
-    <text capture-catch:tap="textTap">小程序1</text>
-  </view>
-  <icon type="warn" size="100rpx" color="red"></icon>
-  <progress percent="75" show-info="true" border-radius="10" stroke-width="50rpx" activeColor="red" backgroundColor="#000" active="true"></progress>
-  <rich-text nodes="{{htmlSnip}}"></rich-text>
-  <!-- <text selectable="true">小程序</text> -->
-  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-    <view>
-    当前选择: {{array[index]}}</view>
-  </picker>
-  <slider min="50" max="200" show-value="true" step="5"></slider>
-  <switch bindchange="bindSwitchChange" checked="true"></switch>
-  <scroll-view scroll-x="true" style="display: flex; white-space: nowrap;">
-    <block wx:for="{{imglist}}" wx:key="index" >
-          <image src="{{item.imageUrl}}" alt="" class="item_img"/>
-    </block>
-  </scroll-view>
-  <scroll-view scroll-y="true" scroll-top="100" style="height: 500rpx" bindscrolltoupper="upper" bindscrolltolower="lower">
-    <block wx:for="{{imglist}}" wx:key="index">
-      <image src="{{item.imageUrl}}" alt="" class="item_img"/>
-    </block>
-  </scroll-view>
+<view class='map'>
+  <map
+    id="map"
+    longitude="{{longitude}}"
+    latitude="{{latitude}}"
+    markers='{{markers}}'
+    scale="18"
+    polyline="{{polyline}}"
+    bindregionchange="regionchange"
+    show-location
+    style="width: 100%; height: 100vh;"
+  ></map>
+  <cover-view bindtap='location' class='location'>
+    <cover-image src="../image/location.png" class='location_img'></cover-image>
+  </cover-view>
+  <cover-view bindtap='back' class='back'>
+    <cover-image src="../image/img1.png" class='img1'></cover-image>
+  </cover-view>
+  <cover-view bindtap='qrcode' class='qrcode'>
+    <cover-image src="../image/qrcode.png" class='qrcode_img'></cover-image>
+  </cover-view>
+  <cover-view bindtap='pay' class='pay'>
+    <cover-image src="../image/pay.png" class='pay_img'></cover-image>
+  </cover-view>
+  <cover-view bindtap='bike' class='bike'>
+    <cover-image src='../image/bike.png' class='bike_img'></cover-image>
+  </cover-view>
 </view>

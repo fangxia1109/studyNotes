@@ -1,163 +1,201 @@
-// pages/index/index.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    array: [1,2,3,4],
-    imglist: [],
-    score: 60,
-    htmlSnip: '',
-    toView: 1,
-    navData: [
-      {
-        text: '导航一'
-      },
-      {
-        text: '导航二'
-      },
-      {
-        text: '导航三'
-      },
-      {
-        text: '导航四'
-      },{
-        text: '导航五'
-      }
-    ],
-    nodes: [{
-      name: 'div',
-      attrs: {
-        class: 'div_class',
-        style: 'line-height: 60px; color: #1AAD19;'
-      },
-      children: [{
-        type: 'text',
-        text: 'You never know what you\'re gonna get.'
-      }]
+    latitude:23.10229,
+    longitude:113.3245211,
+    //显示的单车
+    markers:[],
+    // markers: [{
+    //   iconPath: '/image/location.png',
+    //   id: 0,
+    //   latitude: this.lat,
+    //   longitude: this.log,
+    //   // longitude: 113.3245211,
+    //   // latitude: 23.10229,
+    //   width: 20,
+    //   height: 30
+    // }],
+    polyline: [{
+      points: [{
+        longitude: 113.3245211,
+        latitude: 23.10229
+      }, {
+        longitude: 113.324520,
+        latitude: 23.21229
+      }],
+      color: '#FF0000DD',
+      width: 2,
+      dottedLine: true
     }]
   },
+  onLoad() {
+    var that = this;
 
-  change() {
-    let score = 90
-    this.setData({
-      score: score
+    //创建一个map上下文，如果想要调用地图相关的方法
+    that.mapCtx = wx.createMapContext('map');
+
+    //获取当前的位置信息
+    wx.getLocation({
+      //如果获取成功，会调用success
+      success: function (res) {
+       // console.log(res.latitude+"  "+res.longitude)
+       var log=res.longitude;
+       var lat=res.latitude;
+        // console.log("纬度" + that.lat + "经度" + that.log)
+
+        // //查找附近的单车
+        // wx.request({
+        //   url: "http://localhost:8888/bikes",
+        //   method: 'GET',
+        //   success: function (res) {
+        //     const bikes = res.data.map((item) => {
+        //       return {
+        //         id: item.id,
+        //         iconPath: "/image/bike.png",
+        //         width: 30,
+        //         height: 35,
+        //         latitude: item.latitude,
+        //         longitude: item.longitude
+        //       };
+        //     });
+        //     // 修改data里面的markers
+        //     that.setData({
+        //       // iconPath: "/image/bike.png",
+        //       // width: 5,
+        //       // height: 8,
+        //       latitude: lat,
+        //       longitude: log,
+        //       markers: bikes
+        //     });
+        //   }
+        // })
+
+      }
+    });
+  },
+
+  regionchange(e) {
+    console.log(e.type)
+  },
+  markertap(e) {
+    console.log(e.markerId)
+  },
+  location(){
+    console.log('location')
+  },
+  back() {
+    this.mapCtx.moveToLocation();
+    //console.log('back')
+  },
+  qrcode(){
+    var that = this;
+    //console.log('qrcode')
+    //点击扫描按钮
+    wx.scanCode({
+      success: function (r) {
+        //扫描成功获取二维码的信息
+        var code = r.result;
+        //console.log(r);
+        //向后台发送请求
+        // wx.request({
+        //   //method: 'POST',
+        //   url: 'http://localhost:8888/bike', //仅为示例，并非真实的接口地址
+        //   data: {
+        //     qrCode: code,
+        //     status:0,
+        //     latitude: that.data.latitude,
+        //     longitude: that.data.longitude
+        //   },
+        //   header: {
+        //     'content-type': 'application/json' // 默认值
+        //   },
+        //   success: function (res) {
+        //     console.log(res.data)
+        //   }
+        // })
+      }
     })
   },
+  pay(){
+    console.log('pay')
+  },
 
-  changeData: function() {
-    this.setData({
-      testStr: 'hello小程序'
+  bike(){
+    var that = this;
+    //console.log('bike')
+    //添加车辆的按钮
+    that.mapCtx.getCenterLocation({
+      success: function (res) {
+        var lat = res.latitude;
+        var log = res.longitude;
+        // wx.request({
+        //   url: "http://localhost:8888/bike",
+        //   method: 'POST',
+        //   data: {
+        //     latitude: lat,
+        //     longitude: log
+        //   },
+        //   success: function () {
+        //     console.log("成功!!!")
+        //     //向后台发送请求，将单车查找出来
+        //     wx.request({
+        //       url: "http://localhost:8888/bikes",
+        //       method: 'GET',
+        //       success: function (res) {
+        //         const bikes = res.data.map((item) => {
+        //           return {
+        //             id: item.id,
+        //             iconPath:"../image/bike.png",
+        //             width:30,
+        //             height: 35,
+        //             latitude: item.latitude,
+        //             longitude: item.longitude
+        //           };
+        //         });
+        //         // 修改data里面的markers
+        //         that.setData({
+        //           // iconPath: "/image/bike.png",
+        //           // width: "50rpx",
+        //           // height: "65rpx",
+        //           markers: bikes
+        //         });
+        //       }
+        //     })
+
+        //   }
+        // })
+      }
     })
-  },
-
-  tmove: function() {
-    console.log("touchend")
-  },
-  
-  lpress: function() {
-    console.log("longpress")
-  },
-
-  containerTap: function() {
-    console.log('containerTap')
-  },
-
-  textTap: function() {
-    console.log('textTap')
-  },
-
-  bindPickerChange: function(e) {
-    this.setData({
-      index: e.detail.value
-    })
-  },
-
-  bindSwitchChange: function(e) {
-    console.log(e.detail.value)
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-    console.log('onLoad')
-    let imglist = [{
-        imageUrl: "https://file.xdclass.net/video/2022/banner/03.jpeg",
-        url: "https://xdclass.net/#/memberV2",
-      },
-      {
-        imageUrl: "https://file.xdclass.net/video/2022/banner/34.png",
-        url: "https://detail.tmall.com/item.htm?id=659917587313&skuId=4753069368291",
-      },
-      {
-        imageUrl: "https://file.xdclass.net/video/2022/banner/3.jpeg",
-        url: "https://detail.tmall.com/item.htm?id=671977607036",
-      },
-    ]
-    let htmlSnip = `
-    <div class="div_class">
-      <h1>Title</h1>
-      <p class="p">
-        Life is&nbsp;<i>like</i>&nbsp;a box of
-        <b>&nbsp;chocolates</b>.
-      </p>
-    </div>
-    `
-    this.setData({
-      imglist: imglist,
-      htmlSnip: htmlSnip
-    })
-    console.log(this.data.imglist)
+    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady() {
-    console.log('onready')
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-    console.log('onShow')
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-    console.log(onHide)
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-    console.log('onunload')
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  onReady: function () {
+    let that = this
+    //在这个事件中，记录用户的行为，然后发送到后台服务器
+    //获取当前位置
+    wx.getLocation({
+      success: function (res) {
+        //纬度
+        var lat = res.latitude;
+        //经度
+        var log = res.longitude;
+        // //从本地存储中取出唯一身份标识
+        // var openid = wx.getStorageSync('openid')
+        // //发送request向mongo中添加数据（添加一条文档（json））
+        // wx.request({
+        //   //用POST方式请求es可以只指定index和type，不用指定id
+        //   url: "http://localhost:8888/log/ready",
+        //   data: {
+        //     time: new Date(),
+        //     openid: openid,
+        //     lat: lat,
+        //     log: log
+        //   },
+        //   method: "POST"
+        // })
+      },
+    })
   }
 })

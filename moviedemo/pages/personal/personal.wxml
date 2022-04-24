@@ -1,0 +1,28 @@
+<!--pages/personal/personal.wxml-->
+<view class="container">
+  <view class="avatar">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">微信登录</button>
+    <block wx:else>
+      <image src="{{userInfo.avatarUrl}}"></image>
+      <text class="name">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="info">
+    <view class="section">
+      <text>城市</text>
+      <text>{{userInfo.city}}</text>
+    </view>
+    <view class="section">
+      <text>省</text>
+      <text>{{userInfo.province}}</text>
+    </view>
+    <view class="section">
+      <text>国家</text>
+      <text>{{userInfo.country}}</text>
+    </view>
+    <view class="section">
+      <text>性别</text>
+      <text>{{userInfo.gender===1?"男":"女"}}</text>
+    </view>
+  </view>
+</view>
