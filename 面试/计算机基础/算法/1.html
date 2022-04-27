@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>递归算法</title>
+</head>
+
+<body>
+    <script>
+        // 定义树节点
+        class TreeNode {
+            constructor(value) {
+                this.value = value;
+                this.left = null;
+                this.right = null;
+            }
+        }
+        // 构建树
+        let root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+
+        // 递归算法
+
+        // 递归前序遍历二叉树
+        function preOrder(root) {
+            if (!root || !(root instanceof TreeNode)) {
+                return;
+            }
+            console.log(root.value);
+            // 递归访问左子树
+            preOrder(root.left);
+            // 递归访问右子树
+            preOrder(root.right);
+        }
+        // 递归中序遍历二叉树
+        function midOrder(root) {
+            if (!root || !(root instanceof TreeNode)) {
+                return;
+            }
+            // 递归访问左子树
+            midOrder(root.left);
+            console.log(root.value);
+            // 递归访问右子树
+            midOrder(root.right);
+        }
+
+        // 递归后序遍历二叉树
+        function postOrder(root) {
+            if (!root || !(root instanceof TreeNode)) {
+                return;
+            }
+            // 递归访问左子树
+            postOrder(root.left);
+            // 递归访问右子树
+            postOrder(root.right);
+            console.log(root.value);
+        }
+
+        midOrder(root);
+        preOrder(root);
+        postOrder(root);
+    </script>
+</body>
+
+</html>

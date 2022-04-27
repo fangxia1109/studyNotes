@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数组去重</title>
+</head>
+
+<body>
+    <script>
+        function unique(arr) {
+            let obj = {};
+            return arr.filter(function(item, index, arr) {
+                return obj.hasOwnProperty(typeof item + item) ?
+                    false :
+                    (obj[typeof item + item] = true);
+            });
+        }
+
+        let arr = [
+            1,
+            1,
+            "true",
+            "true",
+            true,
+            true,
+            15,
+            15,
+            false,
+            false,
+            undefined,
+            undefined,
+            null,
+            null,
+            NaN,
+            NaN,
+            "NaN",
+            0,
+            0,
+            "a",
+            "a", {
+                1: 1
+            }, {
+                1: 1
+            },
+        ];
+        console.log(unique(arr));
+    </script>
+</body>
+
+</html>

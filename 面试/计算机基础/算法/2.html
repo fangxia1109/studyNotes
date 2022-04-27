@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>非递归遍历</title>
+</head>
+
+<body>
+    <script>
+        // 定义树节点
+        class TreeNode {
+            constructor(value) {
+                this.value = value;
+                this.left = null;
+                this.right = null;
+            }
+        }
+        // 构建树
+        let root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+
+        function preOrderN(root) {
+            let p = root;
+            let arr = [];
+            let res = [];
+            arr.push(root);
+            while (arr.length) {
+                let node = arr.pop();
+                console.log(node);
+                if (node !== null) {
+                    res.push(node.value);
+                } else {
+                    continue;
+                }
+                if (node.right) {
+                    arr.push(node.right);
+                }
+                if (node.left) {
+                    arr.push(node.left);
+                }
+            }
+            return res;
+        }
+
+        function midOrderN(root) {
+            let p = root; //p为当前遍历的节点，初始为根
+            let arr = []; //arr为栈
+            let res = [];
+            while (p || arr.length !== 0) {
+                if (p) {
+                    //遍历左子树
+                    arr.push(p);
+                    p = p.left;
+                } else {
+                    let node = arr.pop();
+                    res.push(node.value);
+                    p = node.right;
+                }
+            }
+            return res;
+        }
+
+        function postOrderN(root) {
+            let res = [];
+            let arr = [];
+            arr.push(root);
+            while (arr.length) {
+                let node = arr.pop();
+                if (node !== null) {
+                    res.push(node.value);
+                } else {
+                    continue;
+                }
+                if (node.left) {
+                    arr.push(node.left);
+                }
+                if (node.right) {
+                    arr.push(node.right);
+                }
+            }
+            return res.reverse();
+        }
+
+        preOrderN(root);
+        console.log("前序遍历", preOrderN(root));
+        midOrderN(root);
+        console.log("中序遍历", midOrderN(root));
+        postOrderN(root);
+        console.log("后序遍历", postOrderN(root));
+    </script>
+</body>
+
+</html>

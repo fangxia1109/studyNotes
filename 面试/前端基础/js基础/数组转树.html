@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数组转树</title>
+</head>
+
+<body>
+    <script>
+        function arrayToTree(arr) {
+            let root = arr[0];
+            arr.shift();
+            let tree = {
+                id: root.id,
+                val: root.val,
+                children: arr.length > 0 ? toTree(root.id, arr) : [],
+            };
+            return tree;
+        }
+
+        function toTree(parentId, arr) {
+            let children = [];
+            for (let i = 0; i < arr.length; i++) {
+                let node = arr[i];
+                if (node.parentId === parentId) {
+                    children.push({
+                        id: node.id,
+                        val: node.val,
+                        children: toTree(node.id, arr),
+                    });
+                }
+            }
+            return children;
+        }
+        let input = [{
+            id: 1,
+            val: "学校",
+            parentId: null,
+        }, {
+            id: 2,
+            val: "班级1",
+            parentId: 1,
+        }, {
+            id: 3,
+            val: "班级2",
+            parentId: 1,
+        }, {
+            id: 4,
+            val: "学生1",
+            parentId: 2,
+        }, {
+            id: 5,
+            val: "学生2",
+            parentId: 2,
+        }, {
+            id: 6,
+            val: "学生3",
+            parentId: 3,
+        }, ];
+
+        console.log(arrayToTree(input));
+    </script>
+</body>
+
+</html>

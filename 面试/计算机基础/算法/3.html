@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js判断扑克牌同花顺</title>
+</head>
+
+<body>
+    从扑克牌中随机抽5张牌，判断是不是一个顺子，即这5张牌是不是连续的。2-10为数字本身，A为1，J为11，Q为12，K为13，而大小王可以看成任意数字。
+    <script>
+        //判断数组中是否有除两个0外的重复元素
+        function expectZero(arr) {
+            // 找到数组中所有为0的个数
+            let z = arr.filter((item) => item === 0).length;
+            let arr2 = Array.from(new Set(arr)); //去重
+            if (arr2.length === arr.length + 1 - z) {
+                return true; //若返回false,则不满足同花顺条件的前提
+            }
+        }
+
+        // 将A,J，Q,K,大王，小王转化为数字
+        function change(arr) {
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] == "A") {
+                    arr[i] = 1;
+                }
+                if (arr[i] == "J") {
+                    arr[i] = 11;
+                }
+                if (arr[i] == "Q") {
+                    arr[i] = 12;
+                }
+                if (arr[i] == "K") {
+                    arr[i] = 13;
+                }
+                if (arr[i] == "大王") {
+                    arr[i] = 0;
+                }
+                if (arr[i] == "小王") {
+                    arr[i] = 0;
+                }
+            }
+            return arr;
+        }
+
+        // 判断是否为同花顺
+        function isTonghuashun(arr) {
+            if (arr.length !== 5) {
+                console.log("张数不对，不是同花顺");
+                return;
+            }
+            change(arr);
+            console.log(change(arr), "转换后");
+            // 从小到大排序
+            arr.sort((a, b) => a - b);
+            console.log(arr, "排序后");
+            // 做重复判断
+            if (!expectZero(arr)) {
+                console.log(arr, "不是同花顺");
+                return;
+            }
+            let zeroLength = arr.filter((item) => item === 0).length;
+            console.log("零的个数", zeroLength);
+            if (zeroLength === 0 && arr[arr.length - 1] - arr[0] === 4) {
+                console.log(arr, "是同花顺");
+                return;
+            } else if (
+                (zeroLength === 1 && arr[arr.length - 1] - arr[zeroLength] === 3) ||
+                arr[arr.length - 1] - arr[zeroLength] === 4
+            ) {
+                console.log(arr, "是同花顺");
+                return;
+            } else if (
+                (zeroLength === 2 && arr[arr.length - 1] - arr[zeroLength] === 2) ||
+                arr[arr.length - 1] - arr[zeroLength] === 3 ||
+                arr[arr.length - 1] - arr[zeroLength] === 4
+            ) {
+                console.log(arr, "是同花顺");
+                return;
+            } else {
+                console.log(arr, "不是同花顺");
+                return;
+            }
+        }
+        let arr1 = [2, 4, 3, 4, 5];
+        let arr2 = [1, 3, 2, 5, "大王"];
+        let arr3 = ["K", 10, "Q", 9, "大王"];
+        let arr4 = [9, 0, "K", "J", "Q"];
+        let arr5 = [0, 0, "K", "J", "Q"];
+        let arr6 = [0, 0, "K", "J", 0];
+
+        isTonghuashun(arr1);
+        isTonghuashun(arr2);
+        isTonghuashun(arr3);
+        isTonghuashun(arr4);
+        isTonghuashun(arr5);
+        isTonghuashun(arr6);
+    </script>
+</body>
+
+</html>
