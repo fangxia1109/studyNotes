@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <input oninput="handleInput(submit,1000)">防抖</input>
+      <button onclick="handleClick(submit1,3000)">节流</button>
+    </div>
+    <script>
+      function submit() {
+        console.log('防抖')
+      }
+      function submit1() {
+        console.log('节流')
+      }
+      function handleInput(fn, wait) {
+        clearTimeout(this.timer)
+        this.timer = setTimeout(() => {
+          fn()
+        }, wait)
+      }
+      function handleClick(fn, wait) {
+        if (this.isRun) {
+          return;
+        }
+        this.isRun = true
+        setTimeout(() => {
+          this.isRun = false
+          fn()
+        }, wait)
+      }
+    </script>
+  </body>
+</html>

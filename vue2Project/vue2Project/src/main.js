@@ -8,6 +8,9 @@ Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
+  beforeCreate() {
+    Vue.prototype.$bus = this
+  },
   el: '#app',
   router,
   components: { App },

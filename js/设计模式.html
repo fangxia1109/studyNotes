@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 单例模式
+      // 确保一个类仅供一个实例，并提供一个访问它的全局访问点
+      // 网站的登录页
+      // 购物车
+      // vuex
+      class Car {
+        constructor(name) {
+          this.name = name
+        }
+        drive() {
+          '启动'
+        }
+      }
+      Car.singleInsatnce = (function () {
+        let instance
+        return function (name) {
+          if (!instance) {
+            instance = new Car(name) //如果不存在，则返回构造的对象
+          }
+          return instance //如果存在，则返回已经存在的对象
+        }
+      })()
+      let baoma = Car.singleInsatnce('宝马')
+      let benchi = Car.singleInsatnce('奔驰')
+      console.log(baoma, benchi)
+
+      // 工厂模式
+      // 就是把实现相同功能写在函数中，需要实现相同逻辑的地方直接调用函数，减少代码重复
+    </script>
+  </body>
+</html>
