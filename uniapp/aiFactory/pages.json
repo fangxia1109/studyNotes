@@ -1,0 +1,120 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/home/home",
+			"style": {
+				"navigationBarTitleText": "首页",
+				"enablePullDownRefresh": false
+				// "app-plus": {
+				// 	"bounce": "vertical",
+				// 	"titleNView": {
+				// 		"buttons": [{
+				// 			"text": "\ue534",
+				// 			"fontSrc": "/static/uni.ttf",
+				// 			"fontSize": "22px",
+				// 			"color": "#FFFFFF"
+				// 		}]
+				// 	}
+				// }
+			}
+		}
+	    ,{
+            "path" : "pages/product/product",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "产品",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/dynamic/dynamic",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "动态",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/company/company",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "公司",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+	"globalStyle": {
+		"navigationStyle": "custom",
+		"app-plus": {
+			"titleView": false
+		}
+	},
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#2790fa",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		// "height": "140rpx",
+		// "fontSize": "20rpx",
+		// "iconWidth": "48rpx",
+		"spacing": "6rpx",
+		"iconfontSrc": "static/iconfont/iconfont.ttf",
+		"list": [
+			{
+				"pagePath": "pages/home/home",
+				"iconPath": "static/image/png/home.png",
+				"selectedIconPath": "static/image/png/home-selected.png",
+				"text": "首页",
+				"iconfont": {
+					"text": "\ue674",
+					"selectedText": "\ue674",
+					"fontSize": "34rpx",
+					"color": "#000000",
+					"selectedColor": "#2790fa"
+				}
+			},
+			{
+				"pagePath": "pages/product/product",
+				"iconPath": "static/image/png/search.png",
+				"selectedIconPath": "static/image/png/search-selected.png",
+				"text": "产品",
+				"iconfont": {
+					"text": "\ue67d",
+					"selectedText": "\ue67d",
+					"fontSize": "34rpx",
+					"color": "#000000",
+					"selectedColor": "#2790fa"
+				}
+			},
+			{
+				"pagePath": "pages/dynamic/dynamic",
+				"iconPath": "static/image/png/modular.png",
+				"selectedIconPath": "static/image/png/modular-selected.png",
+				"text": "动态",
+				"iconfont": {
+					"text": "\ue678",
+					"selectedText": "\ue678",
+					"fontSize": "34rpx",
+					"color": "#000000",
+					"selectedColor": "#2790fa"
+				}
+			},
+			{
+				"pagePath": "pages/company/company",
+				"iconPath": "static/image/png/fabulous.png",
+				"selectedIconPath": "static/image/png/fabulous-selected.png",
+				"text": "公司",
+				"iconfont": {
+					"text": "\ue66f",
+					"selectedText": "\ue66f",
+					"fontSize": "34rpx",
+					"color": "#000000",
+					"selectedColor": "#2790fa"
+				}
+			}
+		]
+	}
+}
