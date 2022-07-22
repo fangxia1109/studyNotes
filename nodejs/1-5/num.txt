@@ -1,0 +1,41 @@
+const fs = require('fs')
+
+// let rs = fs.createReadStream('./streamTest.js', {
+//   highWaterMark: 100, //设置每次On data的一个数据量
+// })
+
+
+// let count = 1
+
+// rs.on('data', chunk => {
+//   console.log(chunk.toString())
+//   console.log(count++)
+// })
+
+// rs.on('end', () => {
+//   console.log('读取完成')
+// })
+
+// 创建写入文件流
+// let ws = fs.createWriteStream('./num.txt')
+
+// let num = 0
+// let timer = setInterval(() => {
+//   if(num < 10) {
+//     ws.write(num + '')
+//     num++
+//   } else {
+//     ws.end()
+//     clearInterval(timer)
+//   }
+// },200)
+
+// ws.on('finish', () => {
+//   console.log("写入完成")
+// })
+
+
+//管道流传输
+let rs = fs.createReadStream('./streamTest.js')
+let ws = fs.createWriteStream('./num.txt')
+rs.pipe(ws)
