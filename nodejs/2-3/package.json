@@ -1,0 +1,12 @@
+{
+  "name": "2-3",
+  "version": "1.0.0",
+  "main": "getTest.js",
+  "scripts": {
+    "start": "nodemon reqTest.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

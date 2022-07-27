@@ -1,0 +1,51 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="pragma" content="no-cache"><title>小滴课堂</title><meta name="keywords" content="小滴课堂，小D课堂,IT技能学习平台,在线教育,架构师,js教程，java教程，vue3教程，springboot教程，springcloud教程，vue教程，java开发，网页开发，html教程，微服务教程"><meta name="Description" content="小滴课堂为IT技术人员终生学习提供最丰富的课程资源库,倾力分享优质在线视频课程,几乎覆盖了IT技术的各个领域，包含js教程，java教程，vue3教程，springboot教程，springcloud教程，vue教程等微服务教程内容，涵盖前端、后端、运维、大数据、人工智能等，帮助每个渴望成长的IT技术工程师技能提升，学有所成！"><link rel="icon" href="./static/images/favicon.ico"><!--[if lt IE 9
+      ]><script src="https://media-cache.huaweicloud.com/video/hwplayer/1.0.0/lib/video-js-5.20.5/ie8/videojs-ie8.min.js"></script
+    ><![endif]--><script src="https://media-cache.huaweicloud.com/video/hwplayer/1.0.0/dist/hwplayer.js"></script><link href="./static/css/app.af14123009.css" rel="stylesheet"></head><body><div id="app"></div><script type="text/javascript" src="./static/js/manifest.af14123009.js"></script><script type="text/javascript" src="./static/js/vendor.af14123009.js"></script><script type="text/javascript" src="./static/js/app.af14123009.js"></script></body></html><script>var protocol = window.location.protocol;
+  var pathName = window.location.pathname;
+  var dev_host = "localhost:1024";
+  (function () {
+    if (protocol != "https:" && location.host != dev_host) {
+      location.href = location.href.replace("http:", "https:");
+    }
+  })();
+  var _hmt = _hmt || [];
+  (function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?3f26fa5d8c8af47bec4fd972c97a2566";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+
+  (function browserRedirect() {
+    var sUserAgent = navigator.userAgent.toLowerCase();
+    var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+    var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+    var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+    var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+    var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+    var bIsAndroid = sUserAgent.match(/android/i) == "android";
+    var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+    var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+    if (
+      !(
+        bIsIpad ||
+        bIsIphoneOs ||
+        bIsMidp ||
+        bIsUc7 ||
+        bIsUc ||
+        bIsAndroid ||
+        bIsCE ||
+        bIsWM
+      )
+    ) {
+      if (
+        location.host !== dev_host &&
+        location.host !== "devsq.cn" &&
+        location.host !== "16web.net"
+      ) {
+        window.location.href = "https://xdclass.net/#/";
+      }
+    } else {
+      window.location.href = "https://m.xdclass.net/#/";
+    }
+  })();</script>
