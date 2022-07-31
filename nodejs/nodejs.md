@@ -43,3 +43,10 @@
   * 跨域的解决方法cors方法
     <!-- 设置允许跨域的域名 -->
     res.setHeader("Access-Control-Allow-Origin", "*")
+    res.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:5500")
+
+六、mysql
+1、什么是mysql
+mysql是一个数据库管理系统。数据库是存储、管理数据的仓库
+
+2、mysql环境安装配置
