@@ -89,19 +89,19 @@
 					"selectedColor": "#2790fa"
 				}
 			},
-			{
-				"pagePath": "pages/dynamic/dynamic",
-				"iconPath": "static/image/png/modular.png",
-				"selectedIconPath": "static/image/png/modular-selected.png",
-				"text": "动态",
-				"iconfont": {
-					"text": "\ue678",
-					"selectedText": "\ue678",
-					"fontSize": "34rpx",
-					"color": "#000000",
-					"selectedColor": "#2790fa"
-				}
-			},
+			// {
+			// 	"pagePath": "pages/dynamic/dynamic",
+			// 	"iconPath": "static/image/png/modular.png",
+			// 	"selectedIconPath": "static/image/png/modular-selected.png",
+			// 	"text": "动态",
+			// 	"iconfont": {
+			// 		"text": "\ue678",
+			// 		"selectedText": "\ue678",
+			// 		"fontSize": "34rpx",
+			// 		"color": "#000000",
+			// 		"selectedColor": "#2790fa"
+			// 	}
+			// },
 			{
 				"pagePath": "pages/company/company",
 				"iconPath": "static/image/png/fabulous.png",

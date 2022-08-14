@@ -1,7 +1,7 @@
 <template>
 	<view class="content">
 		<view class="text-area">
-			<text class="title">动态</text>
+			<text class="title">公司</text>
 		</view>
 	</view>
 </template>
