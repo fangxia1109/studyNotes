@@ -1,0 +1,45 @@
+*{margin: 0;padding: 0;}
+body,
+html{
+	width: 100%;height: 100%;
+}
+html { overflow-x: hidden; overflow-y: auto; }
+.main {
+	width: 100%;
+	height: 500px;
+	background: deepskyblue;
+    /* align-items: center; */
+}
+.main .kuang{
+	width:100%;
+	height: 250px;
+	padding-top: 25px;
+	box-sizing: border-box;
+	background: lightgreen;
+	overflow: hidden;
+}
+.main .kuang .maint{
+	width:500%;
+    position: absolute;
+    animation: donghua 20s linear infinite;
+}
+.main .kuang .maint .mitem{
+	width:4%;
+	height:200px;
+	float: left;
+	margin-left:1%;
+	border:1px solid #fff;
+	box-sizing: border-box;
+	border-radius: 10px;
+	background:rgba(255,255,255,0.3);
+}
+.main .kuang .maint:hover{
+	animation-play-state: paused;
+}
+@keyframes donghua{
+	0%{left:-0%;}
+	25%{left:-50%;}
+	50%{left:-100%;}
+	75%{left:-150%;}
+	100%{left:-200%;}
+}
