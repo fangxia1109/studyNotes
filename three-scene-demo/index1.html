@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>画线</title>
+</head>
+<body>
+  <script type="module">
+    import * as THREE from './three.module.js'
+
+    // 定义一个场景
+    const scene = new THREE.Scene()
+
+    // 定义材质
+    const material = new THREE.LineBasicMaterial({
+      color: 0x0000ff
+    })
+
+    //定义带有一些顶点的 geometry
+    const points = []
+    points.push( new THREE.Vector3(-10, 0, 0) ) //Vectors定义三维向量
+    points.push( new THREE.Vector3(0, 10, 0) )
+    points.push( new THREE.Vector3(10, 0, 0) )
+
+    const geometry = new THREE.BufferGeometry().setFromPoints( points )
+
+    //定义相机
+    const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 500 )
+    camera.position.set(0, 0, 100)
+    camera.lookAt(0, 0, 0)
+
+    const line = new THREE.Line(geometry, camera)
+
+    //将线条加入场景中
+    scene.add(line)
+
+    //定义渲染器
+    const renderer = new THREE.WebGLRenderer()
+    renderer.setSize( window.innerWidth, window.innerHeight )
+    document.body.appendChild( renderer.domElement)
+    renderer.render(scene, camera)
+  </script>
+</body>
+</html>

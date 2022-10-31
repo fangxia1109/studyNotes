@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>three-scene-demo</title>
+</head>
+<body>
+  <script type="module">
+    import * as THREE from './three.module.js'
+    console.log(THREE)
+    // 创建一个三维场景
+    const scene = new THREE.Scene()
+    //创建一个长方体
+    const geometry = new THREE.BoxGeometry(100,100,100)
+    console.log(geometry)
+    // 设置材质
+    const material = new THREE.MeshBasicMaterial({
+      color: 0x00ffff, //设置颜色
+    })
+    
+    //创建一个网络模型对象
+    const mesh = new THREE.Mesh(geometry, material)
+    // 把网络模型mesh添加到三位场景中
+    scene.add(mesh)
+
+    // 创建一个透视相机
+    const width = 800
+    const height = 500
+    const camera = new THREE.PerspectiveCamera(45, width/height,0.1, 1000)
+    camera.position.set(200, 200, 200)
+    camera.lookAt(0, 0, 0)
+
+    //创建渲染对象
+    const renderer = new THREE.WebGLRenderer()
+    renderer.setSize(width, height) //渲染的宽高度 像素
+    renderer.render(scene, camera) //渲染操作
+    document.body.appendChild(renderer.domElement)
+
+    //是网络模型对象动起来
+    function animate() {
+      requestAnimationFrame( animate )
+      mesh.rotation.x += 0.01
+      mesh.rotation.y += 0.01
+      renderer.render( scene, camera )
+    }
+    animate()
+  </script>
+</body>
+</html>
